@@ -66,3 +66,6 @@
 
 ## 画面遷移図
 https://www.figma.com/file/JFJCiez8NqAQDvkSPFIsAv/%E3%82%B7%E3%83%A3%E3%83%AA%E3%83%90%E3%83%86%E3%81%9A?node-id=0%3A1
+
+## ER図
+https://drive.google.com/file/d/1ZmYNgM7ePU-sau5MBrWkuQG6wbXA9XN3/view?usp=sharing
