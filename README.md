@@ -70,4 +70,28 @@ https://www.figma.com/file/JFJCiez8NqAQDvkSPFIsAv/%E3%82%B7%E3%83%A3%E3%83%AA%E3
 ## ER図
 https://drive.google.com/file/d/1ZmYNgM7ePU-sau5MBrWkuQG6wbXA9XN3/view?usp=sharing
 
-https://user-images.githubusercontent.com/97930711/184634616-1b280273-a5d2-4c1a-9b35-4b0bd598c0b6.png
+https://user-images.githubusercontent.com/97930711/184814862-f732fb6c-5aff-4db3-98ce-333f7e5dc090.png
+
+### テーブル・カラムの概要
+- usersテーブル
+  - rucksack_weight: 荷物重量
+- user_mountainsテーブル: ユーザーが登録した山情報
+- mountain_locationsテーブル: 山の位置情報
+- prefecturesテーブル: 都道府県情報
+- cursesテーブル: 山のコース
+  - name: コース内容 （例：〇〇峠　〜　〇〇峠　まで）
+  - days: 登山にかかる日数
+  - walking_time: 歩行時間
+  - distance: 登山の歩行距離
+  - denivele_plus: 上りの累積標高差
+  - denivele_minus: 下りの累積標高差
+- memosテーブル:
+  - description: 登山記録の詳細
+- portable_foodsテーブル: 携帯食品
+  - volume: 食品の数量
+- rationsテーブル: 行動食情報
+  - energy: エネルギー(kcal)
+- porable_drinksテーブル: 携帯飲料
+  - volume: 飲料の容量
+- drinksテーブル: 水分飲料
+  - energy: エネルギー(kcal)
