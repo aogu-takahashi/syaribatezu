@@ -104,6 +104,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.0)
+    ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hpricot (0.8.6)
@@ -219,6 +220,14 @@ GEM
     rspec-support (3.11.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.4.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -290,6 +299,7 @@ DEPENDENCIES
   rails (~> 7.0.3, >= 7.0.3.1)
   rails-i18n
   rspec-rails
+  sassc-rails
   slim-rails
   sorcery
   sprockets-rails
