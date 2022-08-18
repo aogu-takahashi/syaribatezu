@@ -15,9 +15,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_18_103151) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
+    t.string "name", null: false
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
+    t.integer "age", default: 20, null: false
+    t.integer "sex", default: 0, null: false
+    t.integer "height", default: 170, null: false
+    t.integer "weight", default: 65, null: false
+    t.integer "rucksack_weight", default: 0, null: false
+    t.integer "role", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
