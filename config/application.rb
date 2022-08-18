@@ -34,8 +34,11 @@ module Syaribatezu
     # Don't generate system test files.
     config.generators.system_tests = nil
     
-    #　デフォルトのlocaleを日本語にする
+    # デフォルトのlocaleを日本語にする
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
+
+    # デフォルトのtimezoneを東京にする
+    config.time_zone = 'Tokyo'
   end
 end
