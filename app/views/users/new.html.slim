@@ -1,0 +1,22 @@
+div 
+  h1 ユーザー登録
+  = form_with model: @user, local: true do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.label :email
+    = f.text_field :email
+    = f.label :password
+    = f.password_field :password
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+    = f.label :age
+    = f.text_field :age
+    = f.label :sex
+    = f.text_field :sex
+    = f.label :height
+    = f.text_field :height
+    = f.label :weight
+    = f.text_field :weight
+    = f.submit '登録'
+
+    = link_to 'ログインページへ', login_path
