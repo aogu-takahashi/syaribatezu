@@ -70,7 +70,7 @@ https://www.figma.com/file/JFJCiez8NqAQDvkSPFIsAv/%E3%82%B7%E3%83%A3%E3%83%AA%E3
 ## ER図
 https://drive.google.com/file/d/1ZmYNgM7ePU-sau5MBrWkuQG6wbXA9XN3/view?usp=sharing
 
-https://user-images.githubusercontent.com/97930711/184868518-26a764f0-d6b3-4b76-9686-1cc06397d336.png
+![steru_fav](https://user-images.githubusercontent.com/97930711/184868518-26a764f0-d6b3-4b76-9686-1cc06397d336.png)
 
 ### テーブル・カラムの概要
 - usersテーブル
