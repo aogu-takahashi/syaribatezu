@@ -43,7 +43,6 @@ module Syaribatezu
 
     # RSpecの設定
     config.generators do |g|
-      g.skip_routes true
       g.test_framework :rspec,
         fixtures: false,
         view_specs: false,
