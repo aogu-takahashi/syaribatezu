@@ -5,5 +5,5 @@ class Mountain < ApplicationRecord
   has_many :locations, through: :user_mountains
   has_many :courses
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20}
 end
