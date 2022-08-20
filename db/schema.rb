@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_20_043056) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_20_056039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "mountain_locations", force: :cascade do |t|
+    t.bigint "mountain_id"
+    t.bigint "prefecture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mountain_id"], name: "index_mountain_locations_on_mountain_id"
+    t.index ["prefecture_id"], name: "index_mountain_locations_on_prefecture_id"
+  end
+
   create_table "mountains", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prefectures", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,6 +60,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_043056) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "mountain_locations", "mountains"
+  add_foreign_key "mountain_locations", "prefectures"
   add_foreign_key "user_mountains", "mountains"
   add_foreign_key "user_mountains", "users"
 end

@@ -1,3 +1,4 @@
 class MountainLocation < ApplicationRecord
-  belongs_to :moutain
+  belongs_to :mountain
+  belongs_to :prefecture
 end
