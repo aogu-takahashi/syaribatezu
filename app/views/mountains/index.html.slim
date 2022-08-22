@@ -1,2 +1,11 @@
-input 
+form
+  input placeholder="検索ワード" type="search"
+  input type="submit" value="検索"
 p mountain index
+
+
+- if @mountains.present?
+  - binding.pry
+  = render @mountains
+- else
+  p t('.no_result')
