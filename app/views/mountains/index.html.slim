@@ -3,9 +3,9 @@ form
   input type="submit" value="検索"
 p mountain index
 
+li = link_to "山を登録する", '#'
 
 - if @mountains.present?
-  - binding.pry
   = render @mountains
 - else
   p t('.no_result')
