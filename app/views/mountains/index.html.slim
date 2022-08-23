@@ -3,7 +3,7 @@ form
   input type="submit" value="検索"
 p mountain index
 
-li = link_to "山を登録する", '#'
+li = link_to "山を登録する", new_mountain_path
 
 - if @mountains.present?
   = render @mountains

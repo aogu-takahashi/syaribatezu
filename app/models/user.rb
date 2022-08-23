@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :user_mountains
+  has_many :user_mountains, dependent: :destroy
   has_many :mountains, through: :user_mountains
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
