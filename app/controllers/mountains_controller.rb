@@ -19,6 +19,7 @@ class MountainsController < ApplicationController
 
   def show
     @mountain = Mountain.find(params[:id])
+    @courses = @mountain.courses.all.order(created_at: :desc)
   end
 
   private

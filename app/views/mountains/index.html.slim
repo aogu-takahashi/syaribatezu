@@ -6,6 +6,6 @@ p mountain index
 li = link_to "山を登録する", new_mountain_path
 
 - if @mountains.present?
-  = render @mountains
+  li = render @mountains
 - else
   p t('.no_result')
