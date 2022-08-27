@@ -4,11 +4,11 @@ class MountainsController < ApplicationController
   end
 
   def new
-    @mountain = Mountain.new
+    @mountain = MountainForm.new
   end
 
   def create
-    @mountain = current_user.mountains.build(mountain_params)
+    @mountain = MountainForm.new(mountain_params)
     if @mountain.save
       redirect_to mountains_path, notice: "山情報を作成しました"
     else
@@ -25,6 +25,8 @@ class MountainsController < ApplicationController
   private
 
   def mountain_params
-    params.require(:mountain).permit(:name)
+    params.require(:mountain_form)
+      .permit(:name, :mountain_id, :prefecture_id)
+      .merge(user_id: current_user.id)
   end
 end

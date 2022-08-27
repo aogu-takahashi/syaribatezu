@@ -4,6 +4,4 @@ class Mountain < ApplicationRecord
   has_many :mountain_locations
   has_many :locations, through: :user_mountains
   has_many :courses, dependent: :destroy
-
-  validates :name, presence: true, length: { maximum: 20}
 end
