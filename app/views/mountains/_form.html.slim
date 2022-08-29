@@ -1,5 +1,7 @@
-= form_with model: mountain, local: true do |f|
+= form_with model: mountain,url: mountains_path, local: true do |f|
   = render 'shared/error_messages', object: f.object
   = f.label :name
   = f.text_field :name
+  = f.label :prefecture_id, "都道府県"
+  = f.collection_select :prefecture_id, Prefecture.all, :id, :name
   = f.submit "登録"
