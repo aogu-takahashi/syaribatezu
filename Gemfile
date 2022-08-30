@@ -65,6 +65,7 @@ group :development, :test do
 
   # デバッグツール
   gem "pry-byebug"
+  gem "debug"
 
   # RSpec関連
   gem "rspec-rails"

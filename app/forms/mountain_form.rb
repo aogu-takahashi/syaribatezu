@@ -1,7 +1,7 @@
 class MountainForm
   include ActiveModel::Model
 
-  attr_accessor :name, :mountain_id, :prefecture_id, :user_id
+  attr_accessor :name, :mountain_id, :prefecture_id, :user_id, :prefecture_ids
 
   with_options presence: true do
     validates :name, length: { maximum: 20}

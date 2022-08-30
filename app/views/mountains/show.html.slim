@@ -1,7 +1,12 @@
 p = @mountain.name
 
+= button_to "山を削除する", mountain_path(@mountain), method: :delete, data: { confirm: "本当に削除しますか？" }
+
+- @mountain.prefectures.each do |prefecture|
+  li = prefecture.name
+
 = link_to "コースを追加する", new_mountain_course_path(@mountain.id)
 
 = render "courses/courses", { courses: @courses }
 
-= link_to "コース一覧に戻る", mountains_path
+= link_to "山一覧に戻る", mountains_path
