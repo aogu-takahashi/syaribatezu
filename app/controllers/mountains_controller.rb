@@ -3,9 +3,6 @@ class MountainsController < ApplicationController
     @mountains = Mountain.all
   end
 
-  # def new
-  #   @mountain = MountainForm.new
-  # end
 
   def new
     @mountain = Mountain.new
@@ -25,16 +22,6 @@ class MountainsController < ApplicationController
     end
   end
 
-  # def create
-  #   @mountain = MountainForm.new(mountain_params)
-  #   if @mountain.save
-  #     redirect_to mountains_path, notice: "山情報を作成しました"
-  #   else
-  #     flash.now[:notice] = "山情報の作成に失敗しました"
-  #     render :new
-  #   end
-  # end
-
   def show
     @mountain = Mountain.find(params[:id])
     @courses = @mountain.courses.all.order(created_at: :desc)
@@ -46,6 +33,19 @@ class MountainsController < ApplicationController
     redirect_to mountains_path, notice: "山情報を削除しました"
   end
 
+  def edit
+    @mountain = Mountain.find(params[:id])
+  end
+
+  def update
+    @mountain = Mountain.find(params[:id])
+    if @mountain.update(mountain_params)
+      redirect_to mountains_path, notice: "山情報を更新しました"
+    else
+      flash.now[:notice] = "山情報の更新に失敗しました"
+      render :edit
+    end
+  end
 
   private
 
@@ -56,9 +56,4 @@ class MountainsController < ApplicationController
   def user_mountain_params
     { user_id: current_user.id, mountain_id: @mountain.id}
   end
-  # def mountain_params
-  #   params.require(:mountain_form)
-  #     .permit(:name, :mountain_id, prefecture_ids: []  )
-  #     .merge(user_id: current_user.id)
-  # end
 end
