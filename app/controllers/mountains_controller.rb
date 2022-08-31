@@ -13,9 +13,11 @@ class MountainsController < ApplicationController
   end
 
   def create
-    @mountain = current_user.mountains.build(mountain_params)
+    @mountain = Mountain.new(mountain_params)
 
     if @mountain.save
+      user_mountain = UserMountain.new(user_mountain_params)
+      user_mountain.save
       redirect_to mountains_path, notice: "山情報を作成しました"
     else
       flash.now[:notice] = "山情報の作成に失敗しました"
@@ -39,17 +41,21 @@ class MountainsController < ApplicationController
   end
 
   def destroy
-    mountain = current_user.mountains.find(params[:id])
+    mountain = Mountain.find(params[:id])
     mountain.destroy!
     redirect_to mountains_path, notice: "山情報を削除しました"
   end
 
+
   private
 
-   def mountain_params
+  def mountain_params
     params.require(:mountain).permit(:name, :mountain_id, prefecture_ids: [] )
   end
 
+  def user_mountain_params
+    { user_id: current_user.id, mountain_id: @mountain.id}
+  end
   # def mountain_params
   #   params.require(:mountain_form)
   #     .permit(:name, :mountain_id, prefecture_ids: []  )
