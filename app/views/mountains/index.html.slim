@@ -1,0 +1,11 @@
+form
+  input placeholder="検索ワード" type="search"
+  input type="submit" value="検索"
+p mountain index
+
+li = link_to "山を登録する", new_mountain_path
+
+- if @mountains.present?
+  li = render @mountains
+- else
+  p t('.no_result')
