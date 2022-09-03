@@ -1,0 +1,2 @@
+class PortableFood < ApplicationRecord
+end

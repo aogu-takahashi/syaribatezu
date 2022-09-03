@@ -1,0 +1,2 @@
+class Ration < ApplicationRecord
+end

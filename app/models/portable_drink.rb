@@ -1,0 +1,2 @@
+class PortableDrink < ApplicationRecord
+end
