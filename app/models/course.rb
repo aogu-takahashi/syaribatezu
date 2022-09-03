@@ -8,6 +8,6 @@ class Course < ApplicationRecord
   validates :days, presence: true
   validates :walking_time, presence: true
   validates :distance, presence: true
-  validates :elevation_gain, presence: true
-  validates :elevation_loss, presence: true
+  validates :denivele_plus, presence: true
+  validates :denivele_minus, presence: true
 end
