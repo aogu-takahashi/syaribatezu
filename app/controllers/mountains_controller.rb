@@ -23,22 +23,22 @@ class MountainsController < ApplicationController
   end
 
   def show
-    @mountain = Mountain.find(params[:id])
+    set_mountain
     @courses = @mountain.courses.all.order(created_at: :desc)
   end
 
   def destroy
-    mountain = Mountain.find(params[:id])
-    mountain.destroy!
+    set_mountain
+    @mountain.destroy!
     redirect_to mountains_path, notice: "山情報を削除しました"
   end
 
   def edit
-    @mountain = Mountain.find(params[:id])
+    set_mountain
   end
 
   def update
-    @mountain = Mountain.find(params[:id])
+    set_mountain
     if @mountain.update(mountain_params)
       redirect_to mountains_path, notice: "山情報を更新しました"
     else
@@ -55,5 +55,9 @@ class MountainsController < ApplicationController
 
   def user_mountain_params
     { user_id: current_user.id, mountain_id: @mountain.id}
+  end
+
+  def set_mountain
+    @mountain = Mountain.find(params[:id])
   end
 end
