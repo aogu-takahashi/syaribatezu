@@ -1,0 +1,2 @@
+= label :memo, :course_id
+= collection_select :memo, :course_id, Course.where(mountain_id: mountain_id), :id, :name

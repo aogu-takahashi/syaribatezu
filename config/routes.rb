@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   resources :mountains do
     resources :courses
   end
-  resources :memos
+  resources :memos do
+    collection do
+      get 'get_courses' 
+    end
+  end
 end

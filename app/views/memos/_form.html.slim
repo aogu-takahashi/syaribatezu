@@ -1,0 +1,22 @@
+= form_with model: memo, local: true do |f|
+  = render 'shared/error_messages', object: f.object
+  .mountain-area
+    = f.label :mountain_id
+    = f.collection_select :mountain_id, Mountain.all, :id, :name
+  br
+  .course-area
+    = render partial: "select_course", locals: { mountain_id: Mountain.first.id }
+  br
+  = f.label :date
+  = f.text_field :date
+  br
+  = f.label :temperature
+  = f.text_field :temperature
+  br
+  = f.label :description
+  = f.text_field :description
+  br
+  = f.label :done
+  = f.select :done, { '未完了': 0, '完了': 1 }
+  br
+  = f.submit "登録"
