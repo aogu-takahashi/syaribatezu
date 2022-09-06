@@ -1,11 +1,11 @@
-$(document).on('change', '#profile_prefecture_id', function() {
+$(document).on('change', '#memo_mountain_id', function() {
   return $.ajax({
     type: 'GET',
-    url: '/profiles/get_cities',
+    url: '/memos/get_courses',
     data: {
       prefecture_id: $(this).val()
     }
   }).done(function(data) {
-    return $('.city-area').html(data);
+    return $('.course-area').html(data);
   });
 });
