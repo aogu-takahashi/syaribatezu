@@ -1,4 +1,3 @@
-// require jquery
-// require jquery_ujs
+// /app/javascript/get_courses.js
 
-import './get_courses.js'
+import './get_courses.js';
