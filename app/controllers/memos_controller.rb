@@ -7,8 +7,12 @@ class MemosController < ApplicationController
     @memo = Memo.new
   end
 
+  def get_mountain
+    render partial: "select_mountain", locals: { prefecture_id: params[:prefecture_id] }
+  end
+
   def get_courses
-    render partial: "select_corse", locals: { mountain_id: params[:mountain_id] }
+    render partial: "select_course", locals: { mountain_id: params[:mountain_id] }
   end
 
   def create

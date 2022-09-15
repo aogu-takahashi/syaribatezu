@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :memos do
     collection do
+      get 'get_mountain'
       get 'get_courses' 
     end
   end

@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :mountain do
-    name { "MyString" }
+    name { "name" }
   end
 end
