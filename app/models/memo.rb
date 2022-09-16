@@ -7,10 +7,12 @@ class Memo < ApplicationRecord
   has_many :portable_drinks, dependent: :destroy
   has_many :drinks, through: :portable_drinks
 
-  validates :user_id, presence: true
-  validates :course_id, presence: true
-  validates :date, presence: true
-  validates :temperature, presence: true
+  with_options presence: true do
+    validates :user_id
+    validates :course_id
+    validates :date
+    validates :temperature
+  end
 
   enum done: { not_done: 0, done: 1 }
 end
