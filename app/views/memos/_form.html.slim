@@ -8,7 +8,7 @@
     = render partial: "select_course", locals: { mountain_id: Mountain.first.id }
   br
   = f.label :date
-  = f.text_field :date
+  = f.date_field :date
   br
   = f.label :temperature
   = f.text_field :temperature
@@ -17,6 +17,6 @@
   = f.text_field :description
   br
   = f.label :done
-  = f.select :done, { '未完了': 0, '完了': 1 }
+  = f.select :done, { '未完了': 'not_done', '完了': 'done' }
   br
   = f.submit "登録"

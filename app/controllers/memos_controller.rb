@@ -7,16 +7,12 @@ class MemosController < ApplicationController
     @memo = Memo.new
   end
 
-  def get_mountain
-    render partial: "select_mountain", locals: { prefecture_id: params[:prefecture_id] }
-  end
-
   def get_courses
     render partial: "select_course", locals: { mountain_id: params[:mountain_id] }
   end
 
   def create
-    @memo = Memo.new(memo_params)
+    @memo = current_user.memos.new(memo_params)
 
     if @memo.save
       redirect_to memos_path
@@ -25,9 +21,37 @@ class MemosController < ApplicationController
     end
   end
 
+  def show
+    @memo = Memo.includes(course: :mountain).find(params[:id])
+  end
+
+  def edit
+    set_memo
+  end
+
+  def update
+    set_memo
+
+    if @memo.update(memo_params)
+      redirect_to memos_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    set_memo
+    @memo.destroy
+    redirect_to memos_path
+  end
+
   private
 
   def memo_params
     params.require(:memo).permit(:date, :temperature, :description ,:done, :user_id, :course_id)
+  end
+
+  def set_memo
+    @memo = Memo.find(params[:id])
   end
 end
