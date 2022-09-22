@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :mountains do
     resources :courses
   end
+  
   resources :memos do
+    resources :portable_foods, only: %i[new create edit update destroy]
     collection do
       get 'get_mountain'
       get 'get_courses' 

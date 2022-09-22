@@ -1,0 +1,7 @@
+= form_with model: [memo,portable_food],local: true do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.label :ration_id
+  = f.collection_select :ration_id, Ration.all, :id, :name
+  = f.label :volume
+  = f.text_field :volume
+  = f.submit "登録"
