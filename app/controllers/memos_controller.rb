@@ -24,6 +24,7 @@ class MemosController < ApplicationController
   def show
     @memo = Memo.includes(course: :mountain).find(params[:id])
     @portable_foods = PortableFood.includes(:ration).where(memo_id: params[:id])
+    @portable_drinks = PortableDrink.includes(:drink).where(memo_id: params[:id])
   end
 
   def edit

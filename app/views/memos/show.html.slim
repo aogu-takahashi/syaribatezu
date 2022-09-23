@@ -17,6 +17,12 @@ br
 - else
   p t('.no_result')
 = link_to "食品の追加", new_memo_portable_food_path(@memo)
+br
+- if @portable_drinks.present?
+  = render "memos/portable_drink", collection: @portable_drinks
+- else
+  p t('.no_result')
+= link_to "水分の追加", new_memo_portable_drink_path(@memo)
 
 
 = button_to 'メモの削除', memo_path(@memo), method: :delete

@@ -8,7 +8,7 @@ class PortableFoodsController < ApplicationController
     @portable_food = PortableFood.new(portable_food_params)
 
     if @portable_food.save
-      redirect_to memos_path
+      redirect_to memo_path(@portable_food.memo_id)
     else
       render :new
     end

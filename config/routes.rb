@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
   
   resources :memos do
-    resources :portable_foods, only: %i[new create edit update destroy]
+    resources :portable_foods
+    resources :portable_drinks
     collection do
       get 'get_mountain'
       get 'get_courses' 
