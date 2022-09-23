@@ -1,4 +1,4 @@
 p = course.name
 
-= link_to "削除", '#'
-= link_to "編集", '#'
+= button_to "削除", mountain_course_path(@mountain, course), method: :delete
+= link_to "編集", edit_mountain_course_path(@mountain, course)

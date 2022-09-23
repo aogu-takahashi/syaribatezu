@@ -1,0 +1,2 @@
+module PortableDrinksHelper
+end

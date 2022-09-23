@@ -7,6 +7,15 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :mountains do
-    resources :courses, only: %i[new create show]
+    resources :courses
+  end
+  
+  resources :memos do
+    resources :portable_foods
+    resources :portable_drinks
+    collection do
+      get 'get_mountain'
+      get 'get_courses' 
+    end
   end
 end

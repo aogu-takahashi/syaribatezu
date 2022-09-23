@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :user_mountains, dependent: :destroy
   has_many :mountains, through: :user_mountains
+  has_many :memos, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -10,6 +11,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, uniqueness: true
+  validates :password, presence: true
   validates :age, presence: true
   validates :height, presence: true
   validates :weight, presence: true

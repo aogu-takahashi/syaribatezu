@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   def new
     @course = Course.new
+    @mountain = Mountain.find(params[:mountain_id])
   end
   
   def create
@@ -15,6 +16,28 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @mountain = Mountain.find(params[:mountain_id])
+  end
+
+  def edit
+    @course = Course.find(params[:id])
+    @mountain = Mountain.find(params[:mountain_id])
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      redirect_to mountain_path(params[:mountain_id]), notice:  "Course was successfully updated."
+    else
+      flash.now[:notice] = "コースの更新に失敗しました"
+      render :edit
+    end
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+    redirect_to mountain_path(params[:mountain_id]), notice:  "Course was successfully destroyed."
   end
 
   private

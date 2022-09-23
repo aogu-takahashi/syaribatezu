@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_20_062342) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_17_063719) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_062342) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mountain_id"], name: "index_courses_on_mountain_id"
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "energy", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "memos", force: :cascade do |t|
+    t.integer "temperature", default: 20, null: false
+    t.text "description"
+    t.integer "done", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "date", null: false
+    t.index ["course_id"], name: "index_memos_on_course_id"
+    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "mountain_locations", force: :cascade do |t|
@@ -42,8 +62,35 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_062342) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "portable_drinks", force: :cascade do |t|
+    t.integer "volume", default: 0, null: false
+    t.bigint "memo_id", null: false
+    t.bigint "drink_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["drink_id"], name: "index_portable_drinks_on_drink_id"
+    t.index ["memo_id"], name: "index_portable_drinks_on_memo_id"
+  end
+
+  create_table "portable_foods", force: :cascade do |t|
+    t.integer "volume", default: 0, null: false
+    t.bigint "memo_id", null: false
+    t.bigint "ration_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["memo_id"], name: "index_portable_foods_on_memo_id"
+    t.index ["ration_id"], name: "index_portable_foods_on_ration_id"
+  end
+
   create_table "prefectures", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rations", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "energy", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -73,8 +120,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_062342) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "memos", "courses"
+  add_foreign_key "memos", "users"
   add_foreign_key "mountain_locations", "mountains"
   add_foreign_key "mountain_locations", "prefectures"
+  add_foreign_key "portable_drinks", "drinks"
+  add_foreign_key "portable_drinks", "memos"
+  add_foreign_key "portable_foods", "memos"
+  add_foreign_key "portable_foods", "rations"
   add_foreign_key "user_mountains", "mountains"
   add_foreign_key "user_mountains", "users"
 end

@@ -1,0 +1,8 @@
+/ = portable_food.ration.name
+
+- @portable_foods.each do |portable_food|
+  p = portable_food.ration.name
+  p = portable_food.volume
+  p = link_to "食品の編集", edit_memo_portable_food_path(@memo,portable_food)
+  p = button_to '削除', memo_portable_food_path(@memo,portable_food), method: :delete
+  br
