@@ -40,7 +40,7 @@ class MountainsController < ApplicationController
   def update
     set_mountain
     if @mountain.update(mountain_params)
-      redirect_to mountains_path, notice: "山情報を更新しました"
+      redirect_to mountain_path(@mountain), notice: "山情報を更新しました"
     else
       flash.now[:notice] = "山情報の更新に失敗しました"
       render :edit

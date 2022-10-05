@@ -9,13 +9,22 @@ Rails.application.routes.draw do
   resources :mountains do
     resources :courses
   end
+
+  resources :calculate_energys do
+    collection do
+      get :prefectures
+      get "prefectures/:prefecture_id/mountains", to: "calculate_energys#mountains", as: "mountains"
+      get 'get_courses'
+      post 'set_user'
+    end
+  end
   
   resources :memos do
     resources :portable_foods
     resources :portable_drinks
     collection do
-      get 'get_mountain'
-      get 'get_courses' 
+      get "get_mountain"
+      get "get_courses"
     end
   end
 end

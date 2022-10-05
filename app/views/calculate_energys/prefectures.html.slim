@@ -1,0 +1,6 @@
+p 都道府県選択
+
+- if @prefectures.present?
+    = render "calculate_energys/prefecture", collection: @prefectures
+- else
+  p t('.no_result')

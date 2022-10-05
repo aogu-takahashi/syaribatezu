@@ -1,0 +1,7 @@
+= form_with url: set_user_calculate_energys_path, local: true do |f|
+  .form-group
+    = f.label :mountain_id
+    = f.collection_select :mountain_id, @mountains, :id, :name, {prompt: "山を選択"}, {class: "form-control"}
+  .course-area
+    = render partial: "select_course", locals: { mountain_id: Mountain.first.id }
+  = f.submit "次へ", class: "btn btn-primary"
