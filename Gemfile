@@ -59,10 +59,7 @@ gem "html2slim"
 # ログイン機能
 gem "sorcery"
 
-# ビュー関連
 gem "jquery-rails"
-gem 'cssbundling-rails'
-gem 'jsbundling-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
