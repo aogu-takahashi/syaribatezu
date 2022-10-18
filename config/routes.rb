@@ -10,12 +10,13 @@ Rails.application.routes.draw do
     resources :courses
   end
 
-  resources :calculate_energys do
+  resources :calculate_energys, only: %i[create] do
     collection do
       get :prefectures
       get "prefectures/:prefecture_id/mountains", to: "calculate_energys#mountains", as: "mountains"
       get 'get_courses'
       post 'set_user'
+      patch 'set_other', to: "calculate_energys#set_other"
     end
   end
   
