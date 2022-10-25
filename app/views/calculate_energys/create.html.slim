@@ -1,12 +1,23 @@
-p 行動中のエネルギー消費量【kcal】
-p = @amount_of_energy
+p 行動中のエネルギー消費量
+p #{@amount_of_energy} kcal
 
-p 必要水分量【ml】
-p = @amount_of_water
+p 必要水分量
+p #{@amount_of_water} ml
 
 p おすすめの行動食
-p 羊羹60g #{@yokan}本 #{@yokan * 170}kcal
+- if @choco != 0
+  p 板チョコレート #{@choco}枚 #{@choco_energy}kcal
+- if @yokan != 0
+  p 羊羹60g #{@yokan}本 #{@yokan_energy}kcal
+- if @dried_fruit != 0
+  p ドライフルーツ(30g/袋) #{@dried_fruit}袋 #{@dried_fruit_energy}kcal
 
 p 推奨水分量【ml】
 p ポカリ  
-p #{@pocari} ml
+p #{@pocari} ml #{@pocari_energy}kcal
+
+p 行動食・ポカリの合計エネルギー
+p #{@total_energy}kcal
+
+/ = form_with url: '#' do |f|
+/   = f.hidden_fiedld :

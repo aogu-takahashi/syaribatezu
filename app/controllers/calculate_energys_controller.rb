@@ -43,16 +43,58 @@ class CalculateEnergysController < ApplicationController
                               5
                             end
 
-    @amount_of_water = data_params[:weight].to_i * course.walking_time * coefficient_of_water
+    @amount_of_water = (data_params[:weight].to_i * course.walking_time * coefficient_of_water).round
 
     @pocari = @amount_of_water.round(-2)
 
-    @yokan = (@amount_of_energy - @pocari/100 * Drink.find_by(name: "ポカリ").energy) / Ration.find_by(name: "羊羹").energy
+
+    ration_energy = @amount_of_energy - @pocari/100 * Drink.find_by(name: "ポカリ").energy
+
+    # 必要エネルギー量　/ (ﾁｮｺ + 羊羹 + ﾄﾞﾗｲﾌﾙｰﾂ)
+    bace = ration_energy / 550
+
+    a = ration_energy - bace * 550
+
+    case a
+      when 1..50
+        @choco = bace
+        @yokan = bace
+        @dried_fruit = bace
+
+      when 51..130
+        @choco = bace
+        @yokan = bace
+        @dried_fruit = bace + 1
+      
+      when 131..200
+        @choco = bace
+        @yokan = bace + 1
+        @dried_fruit = bace
+
+      when 201..330
+        @choco = bace + 1
+        @yokan = bace 
+        @dried_fruit = bace 
+
+      when 331..430
+        @choco = bace + 1
+        @yokan = bace 
+        @dried_fruit = bace + 1
+
+      else
+        @choco = bace + 1
+        @yokan = bace + 1
+        @dried_fruit = bace
+    end
+
+    @choco_energy = @choco * Ration.find_by(name: "チョコレート").energy
+    @yokan_energy = @yokan * Ration.find_by(name: "羊羹").energy
+    @dried_fruit_energy = @dried_fruit * Ration.find_by(name: "ドライフルーツ").energy
+    @pocari_energy = @pocari/100 * Drink.find_by(name: "ポカリ").energy
+    @total_energy = @choco_energy + @yokan_energy + @dried_fruit_energy + @pocari_energy
+
+    @save_data = data_params
   end
-
-
-  # 体重(kg) * 行動時間(h) * 5 = ml 
-  # 気温が２５度以上の場合、上の5は7に変更する
 
   private
 
