@@ -1,0 +1,16 @@
+= @course.name
+
+
+= form_with model: @user, url: set_other_calculate_energys_path, local: true do |f|
+  = f.label :age
+  = f.text_field :age
+  = f.label :sex
+  = f.select :sex, User.sexes.keys
+  = f.label :height
+  = f.text_field :height
+  = f.label :weight
+  = f.text_field :weight
+  = f.label :rucksack_weight
+  = f.text_field :rucksack_weight
+  = f.hidden_field :course_id, value: @course.id
+  = f.submit "次へ", class: "btn btn-primary"

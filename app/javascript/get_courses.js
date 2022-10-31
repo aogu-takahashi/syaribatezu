@@ -4,3 +4,10 @@ $(document).on('change', '#memo_mountain_id', function() {
       $('.course-area').html(data);
     });
 });
+
+$(document).on('change', '#mountain_id', function() {
+  $.get('/calculate_energys/get_courses', { mountain_id: $(this).val() })
+    .done(function(data) {
+      $('.course-area').html(data);
+    });
+});
