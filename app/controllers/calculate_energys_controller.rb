@@ -131,7 +131,7 @@ class CalculateEnergysController < ApplicationController
         pocari.save
       end
 
-      redirect_to root_path
+      redirect_to memos_path
     else
       redirect_to login_path
     end
