@@ -50,41 +50,43 @@ class CalculateEnergysController < ApplicationController
 
     ration_energy = @amount_of_energy - @pocari/100 * Drink.find_by(name: "ポカリ").energy
 
-    # 必要エネルギー量　/ (ﾁｮｺ + 羊羹 + ﾄﾞﾗｲﾌﾙｰﾂ)
-    bace = ration_energy / 550
+    # エネルギー量 (ﾁｮｺ + 羊羹 + ﾄﾞﾗｲﾌﾙｰﾂ)
+    bace_set = Ration.find_by(name: "チョコレート").energy + Ration.find_by(name: "羊羹").energy + Ration.find_by(name: "ドライフルーツ").energy
 
-    a = ration_energy - bace * 550
+    basic_quantity = ration_energy / bace_set
 
-    case a
+    differencial_energy = ration_energy - basic_quantity * bace_set
+
+    case differencial_energy
       when 1..50
-        @choco = bace
-        @yokan = bace
-        @dried_fruit = bace
+        @choco = basic_quantity
+        @yokan = basic_quantity
+        @dried_fruit = basic_quantity
 
       when 51..130
-        @choco = bace
-        @yokan = bace
-        @dried_fruit = bace + 1
+        @choco = basic_quantity
+        @yokan = basic_quantity
+        @dried_fruit = basic_quantity + 1
       
       when 131..200
-        @choco = bace
-        @yokan = bace + 1
-        @dried_fruit = bace
+        @choco = basic_quantity
+        @yokan = basic_quantity + 1
+        @dried_fruit = basic_quantity
 
       when 201..330
-        @choco = bace + 1
-        @yokan = bace 
-        @dried_fruit = bace 
+        @choco = basic_quantity + 1
+        @yokan = basic_quantity 
+        @dried_fruit = basic_quantity 
 
       when 331..430
-        @choco = bace + 1
-        @yokan = bace 
-        @dried_fruit = bace + 1
+        @choco = basic_quantity + 1
+        @yokan = basic_quantity 
+        @dried_fruit = basic_quantity + 1
 
       else
-        @choco = bace + 1
-        @yokan = bace + 1
-        @dried_fruit = bace
+        @choco = basic_quantity + 1
+        @yokan = basic_quantity + 1
+        @dried_fruit = basic_quantity
     end
 
     @choco_energy = @choco * Ration.find_by(name: "チョコレート").energy
@@ -94,6 +96,17 @@ class CalculateEnergysController < ApplicationController
     @total_energy = @choco_energy + @yokan_energy + @dried_fruit_energy + @pocari_energy
 
     @save_data = data_params
+  end
+
+  def save_memo
+    if logged_in?
+      data = Memo.new(save_daata_params)
+      data.user_id = current_user.id
+      data.save
+      redirect_to root_path
+    else
+      redirect_to new_user_path
+    end
   end
 
   private
@@ -108,5 +121,9 @@ class CalculateEnergysController < ApplicationController
 
   def data_params
     params.permit(:date, :temperature, :age, :sex, :height, :weight, :rucksack_weight, :course_id)
+  end
+
+  def save_daata_params
+    params.permit(:temperature, :user_id, :course_id, :date)
   end
 end

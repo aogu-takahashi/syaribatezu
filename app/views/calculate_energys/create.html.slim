@@ -8,7 +8,7 @@ p おすすめの行動食
 - if @choco != 0
   p 板チョコレート #{@choco}枚 #{@choco_energy}kcal
 - if @yokan != 0
-  p 羊羹60g #{@yokan}本 #{@yokan_energy}kcal
+  p 羊羹(60g/本) #{@yokan}本 #{@yokan_energy}kcal
 - if @dried_fruit != 0
   p ドライフルーツ(30g/袋) #{@dried_fruit}袋 #{@dried_fruit_energy}kcal
 
@@ -19,5 +19,8 @@ p #{@pocari} ml #{@pocari_energy}kcal
 p 行動食・ポカリの合計エネルギー
 p #{@total_energy}kcal
 
-/ = form_with url: '#' do |f|
-/   = f.hidden_fiedld :
+= form_with url: save_memo_calculate_energys_path do |f|
+  = f.hidden_field :temperature, value: @save_data[:temperature]
+  = f.hidden_field :course_id, value: @save_data[:course_id]
+  = f.hidden_field :date, value: @save_data[:date]
+  = f.submit '保存する'
