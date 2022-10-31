@@ -23,4 +23,8 @@ p #{@total_energy}kcal
   = f.hidden_field :temperature, value: @save_data[:temperature]
   = f.hidden_field :course_id, value: @save_data[:course_id]
   = f.hidden_field :date, value: @save_data[:date]
+  = f.hidden_field :choco, value: @choco
+  = f.hidden_field :yokan, value: @yokan
+  = f.hidden_field :dried_fruit, value: @dried_fruit
+  = f.hidden_field :pocari, value: @pocari
   = f.submit '保存する'
