@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'get_courses'
       post 'set_user'
       patch 'set_other', to: "calculate_energys#set_other"
+      post 'set_other', to: "calculate_energys#set_other"
       post 'save_memo'
     end
   end

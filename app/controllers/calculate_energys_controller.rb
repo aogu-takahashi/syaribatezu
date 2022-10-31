@@ -1,4 +1,6 @@
 class CalculateEnergysController < ApplicationController
+  skip_before_action :require_login
+
   def prefectures
     @prefectures = Prefecture.all
   end
@@ -83,9 +85,14 @@ class CalculateEnergysController < ApplicationController
         @yokan = basic_quantity 
         @dried_fruit = basic_quantity + 1
 
-      else
+      when 431..549
         @choco = basic_quantity + 1
         @yokan = basic_quantity + 1
+        @dried_fruit = basic_quantity
+
+      else
+        @choco = basic_quantity
+        @yokan = basic_quantity
         @dried_fruit = basic_quantity
     end
 
@@ -126,7 +133,7 @@ class CalculateEnergysController < ApplicationController
 
       redirect_to root_path
     else
-      redirect_to new_user_path
+      redirect_to login_path
     end
   end
 
