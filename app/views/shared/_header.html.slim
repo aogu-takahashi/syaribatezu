@@ -1,9 +1,9 @@
 header
-  li = button_to "ログアウト", logout_path, method: :delete
-  li = link_to "メモ一覧", memos_path
   li = link_to "計算する", prefectures_calculate_energys_path
+  li = link_to "メモ一覧", memos_path
   li = link_to "登山記録", '#'
   li = link_to "山の情報", mountains_path
   li = link_to "登山者情報", profile_path(current_user.id)
+  li = button_to "ログアウト", logout_path, method: :delete
   li = link_to "プライバシーポリシー", '#'
   li = link_to "問い合わせ", '#'
