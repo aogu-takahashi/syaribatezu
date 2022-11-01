@@ -1,0 +1,11 @@
+p 登山者情報
+
+p 登山者名: #{current_user.name}
+p メールアドレス: #{current_user.email}
+p 年齢: #{current_user.age}
+p 性別: #{current_user.sex}
+p 身長: #{current_user.height} cm
+p 体重: #{current_user.weight} kg
+p 荷物の重さ: #{current_user.rucksack_weight} kg
+
+p = link_to '登山者情報を編集する', edit_profile_path(current_user)
