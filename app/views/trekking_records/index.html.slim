@@ -1,0 +1,6 @@
+p 登山記録一覧
+
+- if @trekking_records.present?
+  = render partial: 'trekking_record', collection: @trekking_records
+- else
+  p t('.no_result')

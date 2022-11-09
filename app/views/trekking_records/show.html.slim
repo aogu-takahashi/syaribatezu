@@ -1,0 +1,31 @@
+p = @trekking_record.date
+
+= @trekking_record.course.mountain.name
+br
+= @trekking_record.course.name
+br
+= @trekking_record.temperature
+br
+= @trekking_record.description
+br
+= @trekking_record.done
+= form_with model: @trekking_record, local: true do |f|
+  = f.check_box :done, {}, "done", "not_done"
+  = f.submit "更新"
+br
+- if @portable_foods.present?
+  = render "trekking_records/portable_food", collection: @portable_foods
+- else
+  p t('.no_result')
+
+br
+- if @portable_drinks.present?
+  = render "trekking_records/portable_drink", collection: @portable_drinks
+- else
+  p t('.no_result')
+br
+= @trekking_record.description
+br
+= link_to "コメントの追加・編集", edit_trekking_record_path(@trekking_record)
+br
+= button_to '記録の削除', trekking_record_path(@trekking_record), method: :delete
