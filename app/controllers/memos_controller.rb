@@ -1,6 +1,6 @@
 class MemosController < ApplicationController
   def index
-    @memos = Memo.all
+    @memos = Memo.where(done: 0).order(date: :desc)
   end
 
   def new

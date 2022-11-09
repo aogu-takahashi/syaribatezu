@@ -9,6 +9,9 @@ br
 = @memo.description
 br
 = @memo.done
+= form_with model: @memo, local: true do |f|
+  = f.check_box :done, {}, "done", "not_done"
+  = f.submit "更新"
 br
 = link_to 'コースの編集', edit_memo_path(@memo)
 br

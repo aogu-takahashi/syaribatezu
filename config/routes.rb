@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :profiles, only: %i[show edit update]
+  resources :trekking_records, only: %i[index show edit update destroy]
   resources :mountains do
     resources :courses
   end
