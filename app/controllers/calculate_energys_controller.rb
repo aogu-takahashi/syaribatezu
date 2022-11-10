@@ -37,14 +37,19 @@ class CalculateEnergysController < ApplicationController
   def create
     course = Course.find(data_params[:course_id])
 
+    # 必要エネルギー量の計算
+    # (1.8 * 行動時間(h) + 0.3 * 歩行距離(km) + 10 * 上りの累積標高差(km) + 0.6 * 下りの累積標高差(km) ) * ( 体重(kg) + 荷物重量(kg) ) * 糖質エネルギー比（0.7) 
     @amount_of_energy = ((course.walking_time * 1.8 + course.distance * 0.3 + course.denivele_plus * 10.0 + course.denivele_minus * 0.6) * (data_params[:weight].to_i + data_params[:rucksack_weight].to_i) * 0.7).round
 
+    # 気温ごとの水分係数
     coefficient_of_water =  if data_params[:temperature].to_i >= 25
                               7
                             else
                               5
                             end
 
+    # 必要水分量の計算
+    # 体重(kg) * 行動時間(h) * 係数(気温が25度以上▷7、それ以下▷5) 
     @amount_of_water = (data_params[:weight].to_i * course.walking_time * coefficient_of_water).round
 
     @pocari = @amount_of_water.round(-2)

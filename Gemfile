@@ -59,6 +59,9 @@ gem "html2slim"
 # ログイン機能
 gem "sorcery"
 
+# ビュー関連
+gem "bootstrap"
+gem "font-awesome-sass"
 gem "jquery-rails"
 
 group :development, :test do
