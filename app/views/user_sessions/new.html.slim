@@ -1,8 +1,12 @@
 div
-  h1 ログイン
+  h1 = t '.title'
   = form_with url: login_path, local: true do |f|
-    = f.label :email
+    = f.label :email, User.human_attribute_name(:email)
     = f.text_field :email
-    = f.label :password 
+    = f.label :password, User.human_attribute_name(:password)
     = f.password_field :password
-    = f.submit "ログイン"
+    = f.submit (t 'defaults.login')
+  
+  = link_to (t '.to_register_page'), new_user_path
+  br
+  = link_to (t '.forget_password'), '#'

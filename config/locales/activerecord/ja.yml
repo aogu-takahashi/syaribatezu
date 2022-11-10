@@ -1,0 +1,49 @@
+ja:
+  activerecord:
+    models:
+      course: "コース"
+      drink: "ドリンク"
+      memo: "メモ"
+      mountain_location: "山の所在地"
+      mountain: "山"
+      portable_drink: "携帯飲料"
+      portable_food: "携帯食料"
+      prefecture: "都道府県"
+      ration: "食品"
+      user_mountain: "ユーザーの登録山"
+      user: "ユーザー"
+    attributes:
+      course:
+        name: "コース名"
+        day: "日数"
+        walking_time: "歩行時間"
+        distance: "距離"
+        denivele_plus: "上りの累積標高差"
+        denivele_minus: "下りの累積標高差"
+      drink:
+        name: "ドリンク名"
+        energy: "エネルギー"
+      memo:
+        temperature: "気温"
+        done: "実施状況"
+      mountain:
+        name: "山名"
+      portable_drink:
+        volume: "容量"
+      portable_food:
+        volume: "個数"
+      prefecture:
+        name: "都道府県名"
+      ration:
+        name: "食品名"
+        energy: "エネルギー"
+      user:
+        name: "ユーザー名"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        age: "年齢"
+        sex: "性別"
+        height: "身長"
+        weight: "体重"
+        rucksack_weight: "荷物重量"

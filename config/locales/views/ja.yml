@@ -1,0 +1,45 @@
+ja:
+  defaults:
+    login: "ログイン"
+    logout: "ログアウト"
+    calculate: "計算する"
+    register: "登録"
+    sign_up: "新規登録"
+    privacy_policy: "プライバシーポリシー"
+    inquiry: "お問い合わせ"
+  calculate_energys:
+    prefectures:
+      title: "エネルギー計算"
+    mountains:
+      title: "エネルギー計算"
+    set_user:
+      title: "エネルギー計算"
+    set_other:
+      title: "エネルギー計算"
+    create:
+      title: "エネルギー計算"
+  courses:
+    show:
+      title: "コース詳細"
+    new:
+      title: "コース登録"
+    edit:
+      title: "コース編集"
+  memos:
+    index:
+      title: "メモ一覧"
+    new:
+      title: "メモ登録"
+    show:
+      title: "メモ詳細"
+    edit:
+      title: "メモ編集"
+  users:
+    new:
+      title: "ユーザー登録"
+      to_login_page: "ログインページへ"
+  user_sessions:
+    new:
+      title: "ログイン"
+      to_register_page: "ユーザー登録ページへ"
+      forget_password: "パスワードを忘れた方はこちら"

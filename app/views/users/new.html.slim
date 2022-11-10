@@ -18,6 +18,6 @@ div
     = f.text_field :height
     = f.label :weight
     = f.text_field :weight
-    = f.submit '登録'
+    = f.submit (t 'defaults.register')
 
-    = link_to 'ログインページへ', login_path
+    = link_to (t '.to_login_page'), login_path
