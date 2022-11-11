@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :mountains do
     resources :courses
   end
+  resources :password_resets, only: %i[new create edit update]
 
   resources :calculate_energys, only: %i[create] do
     collection do

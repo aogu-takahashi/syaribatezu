@@ -43,3 +43,14 @@ ja:
       title: "ログイン"
       to_register_page: "ユーザー登録ページへ"
       forget_password: "パスワードを忘れた方はこちら"
+  password_resets:
+    new:
+      title: "パスワード再設定"
+      submit: "送信"
+    edit:
+      title: "パスワード再設定"
+    create:
+      success: "パスワード再設定用のメールを送信しました。"
+    update:
+      success: "パスワードを再設定しました。"
+      fail: "パスワード再設定に失敗しました。"

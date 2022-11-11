@@ -8,7 +8,7 @@ class PasswordResetsController < ApplicationController
     @user&.deliver_reset_password_instructions!
     # 「存在しないメールアドレスです」という旨の文言を表示すると、逆に存在するメールアドレスを特定されてしまうため、
     # あえて成功時のメッセージを送信させている
-    redirect_to login_path, success: t('.success')
+    redirect_to login_path, notice: 'パスワード再設定用のメールを送信しました'
   end
 
   def edit
