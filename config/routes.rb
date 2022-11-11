@@ -5,12 +5,15 @@ Rails.application.routes.draw do
   post 'login', to: "user_sessions#create"
   delete 'logout', to: "user_sessions#destroy"
 
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   resources :users, only: %i[new create]
   resources :profiles, only: %i[show edit update]
   resources :trekking_records, only: %i[index show edit update destroy]
   resources :mountains do
     resources :courses
   end
+  resources :password_resets, only: %i[new create edit update]
 
   resources :calculate_energys, only: %i[create] do
     collection do
