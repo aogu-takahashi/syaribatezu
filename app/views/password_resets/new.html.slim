@@ -1,0 +1,4 @@
+= form_with url: password_reset_path, local: true do |f|
+  = label :email, t(User.human_attribute_name(:email))
+  = f.email_field :email
+  = f.submit t('password_resets.new.submit')
