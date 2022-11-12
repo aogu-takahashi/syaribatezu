@@ -7,9 +7,9 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      redirect_to mountain_path(params[:mountain_id]), notice:  "Course was successfully created."
+      redirect_to mountain_path(params[:mountain_id]), success:  t('.success')
     else
-      flash.now[:notice] = "コースの作成に失敗しました"
+      flash.now[:danger] = "コースの作成に失敗しました"
       render :new
     end
   end

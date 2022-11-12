@@ -1,15 +1,22 @@
-= form_with model: course,url: [mountain, course], local: true do |f|
+= form_with model: course,url: [mountain, course], local: true, class: "row g-3" do |f|
   = render 'shared/error_messages', object: f.object
-  = f.label :name 
-  = f.text_field :name
-  = f.label :days
-  = f.text_field :days
-  = f.label :walking_time
-  = f.text_field :walking_time
-  = f.label :distance
-  = f.text_field :distance
-  = f.label :denivele_plus
-  = f.text_field :denivele_plus
-  = f.label :denivele_minus
-  = f.text_field :denivele_minus
-  = f.submit "登録"
+  .mb-3
+    = f.label :name, class: "form-label"
+    = f.text_field :name, class: "form-control"
+  .col-4
+    = f.label :days, class: "form-label"
+    = f.number_field :days, class: "form-control"
+  .col-4
+    = f.label :walking_time, class: "form-label"
+    = f.text_field :walking_time, class: "form-control"
+  .col-4
+    = f.label :distance, class: "form-label"
+    = f.text_field :distance, class: "form-control"
+  .col-6
+    = f.label :denivele_plus, class: "form-label"
+    = f.text_field :denivele_plus, class: "form-control"
+  .col-6
+    = f.label :denivele_minus, class: "form-label"
+    = f.text_field :denivele_minus, class: "form-control"
+  .col-12
+    = f.submit "登録", class: "btn btn-secondary"

@@ -10,12 +10,14 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
-  validates :name, presence: true, length: { maximum: 50 }
-  validates :email, presence: true, uniqueness: true
-  validates :age, presence: true
-  validates :height, presence: true
-  validates :weight, presence: true
-  validates :rucksack_weight, presence: true
+  with_options presence: true do
+    validates :name, length: { maximum: 50 }
+    validates :email, uniqueness: true
+    validates :age
+    validates :height
+    validates :weight
+    validates :rucksack_weight
+  end
   
   enum sex: { man: 0, woman: 1 }
   enum role: { general: 0, admin: 1 }

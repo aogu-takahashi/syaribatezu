@@ -15,7 +15,7 @@ ja:
     attributes:
       course:
         name: "コース名"
-        day: "日数"
+        days: "登山日数"
         walking_time: "歩行時間"
         distance: "距離"
         denivele_plus: "上りの累積標高差"

@@ -19,6 +19,8 @@ ja:
     create:
       title: "エネルギー計算"
   courses:
+    create:
+      success: "コースを作成しました"
     show:
       title: "コース詳細"
     new:
@@ -38,11 +40,19 @@ ja:
     new:
       title: "ユーザー登録"
       to_login_page: "ログインページへ"
+    create:
+      success: "ユーザーを作成しました"
+      fail: "ユーザーの作成に失敗しました"
   user_sessions:
     new:
       title: "ログイン"
       to_register_page: "ユーザー登録ページへ"
       forget_password: "パスワードを忘れた方はこちら"
+    create:
+      success: "ログインしました"
+      fail: "ログインに失敗しました"
+    destroy:
+      success: "ログアウトしました"
   password_resets:
     new:
       title: "パスワード再設定"
