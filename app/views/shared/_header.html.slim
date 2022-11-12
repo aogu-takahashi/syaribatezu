@@ -1,9 +1,10 @@
 header
-  li = link_to (t 'defaults.calculate'), prefectures_calculate_energys_path
-  li = link_to "メモ一覧", memos_path
-  li = link_to "登山記録", trekking_records_path
-  li = link_to "山の情報", mountains_path
-  li = link_to "登山者情報", profile_path(current_user.id)
-  li = button_to (t 'defaults.logout'), logout_path, method: :delete
-  li = link_to (t 'defaults.privacy_policy'), '#'
-  li = link_to (t 'defaults.inquiry'), '#'
+  nav
+    li = link_to (t 'defaults.calculate'), prefectures_calculate_energys_path
+    li = link_to "メモ一覧", memos_path
+    li = link_to "登山記録", trekking_records_path
+    li = link_to "山の情報", mountains_path
+    li = link_to "登山者情報", profile_path(current_user.id)
+    li = button_to (t 'defaults.logout'), logout_path, method: :delete
+    li = link_to (t 'defaults.privacy_policy'), '#'
+    li = link_to (t 'defaults.inquiry'), '#'
