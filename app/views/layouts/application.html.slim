@@ -21,4 +21,7 @@ html
       = render "shared/before_login_header"
     = render "shared/flash_message"
     = yield
-    = render "shared/footer"
+    - if logged_in?
+      = render "shared/footer"
+    - else
+      = render "shared/before_login_footer"
