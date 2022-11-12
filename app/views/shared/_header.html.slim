@@ -1,10 +1,24 @@
 header
-  nav
-    li = link_to (t 'defaults.calculate'), prefectures_calculate_energys_path
-    li = link_to "メモ一覧", memos_path
-    li = link_to "登山記録", trekking_records_path
-    li = link_to "山の情報", mountains_path
-    li = link_to "登山者情報", profile_path(current_user.id)
-    li = button_to (t 'defaults.logout'), logout_path, method: :delete
-    li = link_to (t 'defaults.privacy_policy'), '#'
-    li = link_to (t 'defaults.inquiry'), '#'
+  nav class="navbar navbar-expand-lg navbar-light bg-light"
+    div class="container-fluid"
+      = link_to "シャリバテず！", root_path, class: "navbar-brand"
+      button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+        span class="navbar-toggler-icon"
+      div class="collapse navbar-collapse" id="navbarSupportedContent"
+        ul class="navbar-nav me-auto mb-2 mb-lg-0"
+          li class="nav-item"
+            = link_to (t 'defaults.calculate'), prefectures_calculate_energys_path, class: "nav-link"
+          li class="nav-item"
+            = link_to "メモ一覧", memos_path, class: "nav-link"
+          li class="nav-item"
+            = link_to "登山記録", trekking_records_path, class: "nav-link"
+          li class="nav-item"
+            = link_to "山の情報", mountains_path, class: "nav-link"
+          li class="nav-item"
+            = link_to "登山者情報", profile_path(current_user.id), class: "nav-link"
+          li class="nav-item"
+            = button_to (t 'defaults.logout'), logout_path, method: :delete, class: "nav-link"
+          li class="nav-item"
+            = link_to (t 'defaults.privacy_policy'), '#', class: "nav-link"
+          li class="nav-item"
+            = link_to (t 'defaults.inquiry'), '#', class: "nav-link"
