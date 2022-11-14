@@ -24,7 +24,11 @@ ja:
         name: "ドリンク名"
         energy: "エネルギー"
       memo:
+        mountain_id: "山"
+        course_id: "コース"
+        date: "登山日"
         temperature: "気温"
+        description: "詳細メモ"
         done: "実施状況"
       mountain:
         name: "山名"

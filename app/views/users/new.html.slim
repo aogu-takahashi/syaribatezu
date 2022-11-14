@@ -2,29 +2,29 @@
   p = t('.title')
   = form_with model: @user, local: true, class: "row g-3" do |f|
     = render 'shared/error_messages', object: f.object
-    div class="col-md-12"
+    .col-md-12
       = f.label :name, class: "form-label"
       = f.text_field :name, class: "form-control", placeholder: "山田　登" , required: :true
-    div class="col-md-12"
+    .col-md-12
       = f.label :email, class: "form-label"
       = f.text_field :email, class: "form-control", placeholder: "syaribatezu@email.com", required: :true
-    div class="col-md-6"
+    .col-md-6
       = f.label :password, class: "form-label"
       = f.password_field :password, class: "form-control", required: :true
-    div class="col-md-6"
+    .col-md-6
       = f.label :password_confirmation, class: "form-label"
       = f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再入力してください", required: :true
-    div class="col-md-6"
+    .col-md-6
       = f.label :age, class: "form-label"
       = f.number_field :age, class: "form-control", required: :true
-    div class="col-md-6"
+    .col-md-6
       = f.label :sex, class: "form-label"
       = f.select :sex, User.sexes.keys, {}, class: "form-select", required: :true
-    div class="col-md-6"
+    .col-md-6
       = f.label :height, class: "form-label"
       = f.text_field :height, class: "form-control", required: :true
-    div class="col-md-6"
+    .col-md-6
       = f.label :weight, class: "form-label"
       = f.text_field :weight, class: "form-control", required: :true
-    div class="col-12"
+    .col-12
       = f.submit (t 'defaults.register'), class: "btn btn-secondary"

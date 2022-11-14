@@ -31,7 +31,7 @@ ja:
     index:
       title: "メモ一覧"
     new:
-      title: "メモ登録"
+      title: "メモの登録"
     show:
       title: "メモ詳細"
     edit:
