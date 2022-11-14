@@ -48,6 +48,7 @@ ja:
   memos:
     index:
       title: "メモ一覧"
+      create: "新規作成"
       no_result: "メモがありません"
     new:
       title: "メモの登録"
