@@ -1,16 +1,21 @@
-= @course.name
-
-
-= form_with model: @user, url: set_other_calculate_energys_path, local: true do |f|
-  = f.label :age
-  = f.text_field :age
-  = f.label :sex
-  = f.select :sex, User.sexes.keys
-  = f.label :height
-  = f.text_field :height
-  = f.label :weight
-  = f.text_field :weight
-  = f.label :rucksack_weight
-  = f.text_field :rucksack_weight
-  = f.hidden_field :course_id, value: @course.id
-  = f.submit "次へ", class: "btn btn-primary"
+.container.mt-4
+  p = t('.title')
+  p = t('.user_data')
+  = form_with model: @user, url: set_other_calculate_energys_path, local: true do |f|
+    .mb-3
+      = f.label :age, class: "form-label"
+      = f.number_field :age, class: "form-control"
+    .mb-3
+      = f.label :sex, class: "form-label"
+      = f.select :sex, User.sexes.keys, {}, {class: "form-control"}
+    .mb-3
+      = f.label :height, class: "form-label"
+      = f.number_field :height, class: "form-control"
+    .mb-3
+      = f.label :weight, class: "form-label"
+      = f.number_field :weight, class: "form-control"
+    .mb-3
+      = f.label :rucksack_weight, class: "form-label"
+      = f.number_field :rucksack_weight, class: "form-control"
+    = f.hidden_field :course_id, value: @course.id
+    = f.submit "次へ", class: "btn btn-secondary"

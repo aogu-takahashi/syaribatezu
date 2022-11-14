@@ -1,4 +1,4 @@
-.container
+.container.mt-4
   p = t('.title')
   = form_with model: @user, local: true, class: "row g-3" do |f|
     = render 'shared/error_messages', object: f.object

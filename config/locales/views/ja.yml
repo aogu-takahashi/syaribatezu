@@ -10,14 +10,32 @@ ja:
   calculate_energys:
     prefectures:
       title: "エネルギー計算"
+      prefecture_select: "都道府県を選択"
+      no_result: "該当する都道府県が見つかりませんでした。"
     mountains:
       title: "エネルギー計算"
+      course_select: "コースを選択"
+      mountain_select: "山"
+    get_courses:
+      mountain: "山"
     set_user:
       title: "エネルギー計算"
+      user_data: "登山者情報の入力"
     set_other:
       title: "エネルギー計算"
+      other_data: "その他情報の入力"
+      date: "日付"
+      temperature: '気温(℃)'
+      submit: "計算する"
     create:
       title: "エネルギー計算"
+      calculation_result: "計算結果"
+      energy_consumption: "行動中のエネルギー消費量"
+      water_requirements: "必要水分量"
+      recommendation_ration: "おすすめの行動食"
+      recommendation_water: "おすすめの飲み物"
+      total_energy: "行動食・ポカリの合計エネルギー"
+      save: "保存する"
   courses:
     create:
       success: "コースを作成しました"
@@ -30,6 +48,7 @@ ja:
   memos:
     index:
       title: "メモ一覧"
+      no_result: "メモがありません"
     new:
       title: "メモの登録"
     show:

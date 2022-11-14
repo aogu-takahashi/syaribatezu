@@ -1,30 +1,46 @@
-p 行動中のエネルギー消費量
-p #{@amount_of_energy} kcal
+.container.mt-4
+  .card.mx-auto style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.calculation_result')
+    .card-body.text-secondary
+      p.card-title = t('.energy_consumption')
+      p.card-text #{@amount_of_energy} kcal
+    .card-body.text-secondary
+      p.card-title = t('.water_requirements')
+      p.card-text #{@amount_of_water} ml
+  .card.mt-4.mx-auto style="max-width: 30rem;"
+    .card-header
+        p.card-title.text-center = t('.recommendation_ration')
+    .card-body.text-secondary
+      - if @choco != 0
+        p.card-title 板チョコレート 
+        p.card-text #{@choco}枚 #{@choco_energy}kcal
+    .card-body.text-secondary
+      - if @yokan != 0
+        p.card-title 羊羹(60g/本)
+        p.card-text #{@yokan}本 #{@yokan_energy}kcal
+    .card-body.text-secondary
+      - if @dried_fruit != 0
+        p.card-title ドライフルーツ(30g/袋) 
+        p.card-text #{@dried_fruit}袋 #{@dried_fruit_energy}kcal
+  .card.mt-4.mx-auto style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.recommendation_water')
+    .card-body.text-secondary
+      p.card-title ポカリ  
+      p.card-text #{@pocari} ml #{@pocari_energy}kcal
+  .card.mt-4.mx-auto style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.total_energy')
+    .card-body.text-secondary
+      p.card-text #{@total_energy}kcal
 
-p 必要水分量
-p #{@amount_of_water} ml
-
-p おすすめの行動食
-- if @choco != 0
-  p 板チョコレート #{@choco}枚 #{@choco_energy}kcal
-- if @yokan != 0
-  p 羊羹(60g/本) #{@yokan}本 #{@yokan_energy}kcal
-- if @dried_fruit != 0
-  p ドライフルーツ(30g/袋) #{@dried_fruit}袋 #{@dried_fruit_energy}kcal
-
-p 推奨水分量【ml】
-p ポカリ  
-p #{@pocari} ml #{@pocari_energy}kcal
-
-p 行動食・ポカリの合計エネルギー
-p #{@total_energy}kcal
-
-= form_with url: save_memo_calculate_energys_path do |f|
-  = f.hidden_field :temperature, value: @save_data[:temperature]
-  = f.hidden_field :course_id, value: @save_data[:course_id]
-  = f.hidden_field :date, value: @save_data[:date]
-  = f.hidden_field :choco, value: @choco
-  = f.hidden_field :yokan, value: @yokan
-  = f.hidden_field :dried_fruit, value: @dried_fruit
-  = f.hidden_field :pocari, value: @pocari
-  = f.submit '保存する'
+  = form_with url: save_memo_calculate_energys_path do |f|
+    = f.hidden_field :temperature, value: @save_data[:temperature]
+    = f.hidden_field :course_id, value: @save_data[:course_id]
+    = f.hidden_field :date, value: @save_data[:date]
+    = f.hidden_field :choco, value: @choco
+    = f.hidden_field :yokan, value: @yokan
+    = f.hidden_field :dried_fruit, value: @dried_fruit
+    = f.hidden_field :pocari, value: @pocari
+    = f.submit t('.save'), class: "btn btn-secondary mt-4 mx-auto d-block"
