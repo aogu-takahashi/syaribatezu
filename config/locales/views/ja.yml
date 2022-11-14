@@ -36,6 +36,9 @@ ja:
       title: "メモ詳細"
     edit:
       title: "メモ編集"
+  mountains:
+    new:
+      title: "山の登録"
   users:
     new:
       title: "ユーザー登録"
