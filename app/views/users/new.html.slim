@@ -19,7 +19,7 @@
       = f.number_field :age, class: "form-control", required: :true
     .col-md-6
       = f.label :sex, class: "form-label"
-      = f.select :sex, [["男性", 'man'], ["女性", "woman"]], {}, class: "form-select", required: :true
+      = f.select :sex, User.sexes.keys, {}, class: "form-select"
     .col-md-6
       = f.label :height, class: "form-label"
       = f.text_field :height, class: "form-control", required: :true

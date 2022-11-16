@@ -116,3 +116,12 @@ ja:
       submit: "更新する"
     new:
       title: "飲料の追加"
+  profiles:
+    show:
+      title: "プロフィール"
+    edit:
+      title: "登山者情報の編集"
+      submit: "更新する"
+    create:
+      success: "登山者情報を作成しました"
+      fail: "登山者情報の作成に失敗しました"
