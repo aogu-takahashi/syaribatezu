@@ -7,6 +7,9 @@ ja:
     sign_up: "新規登録"
     privacy_policy: "プライバシーポリシー"
     inquiry: "お問い合わせ"
+    edit: "編集"
+    delete: "削除"
+    select: "選択"
   calculate_energys:
     prefectures:
       title: "エネルギー計算"
@@ -49,11 +52,23 @@ ja:
     index:
       title: "メモ一覧"
       create: "新規作成"
+      show: "詳細"
       no_result: "メモがありません"
     new:
       title: "メモの登録"
     show:
       title: "メモ詳細"
+      course_data: "コース情報"
+      date: "日付"
+      mountain_name: "山名"
+      course_name: "コース名"
+      temperature: "気温"
+      portable_food: "行動食"
+      portable_drink: "携帯飲料"
+      no_result: "食品がりません"
+      add_food: "食品の追加"
+      done: "実施"
+      not_done: "未実施"
     edit:
       title: "メモ編集"
   mountains:
@@ -87,3 +102,17 @@ ja:
     update:
       success: "パスワードを再設定しました。"
       fail: "パスワード再設定に失敗しました。"
+  portable_foods:
+    edit:
+      title: "食品の編集"
+      ration: "行動食"
+      submit: "更新する"
+    new:
+      title: "食品の追加"
+  portable_drinks:
+    edit:
+      title: "飲料の編集"
+      drink: "携帯飲料"
+      submit: "更新する"
+    new:
+      title: "飲料の追加"

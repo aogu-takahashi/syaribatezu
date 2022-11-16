@@ -57,8 +57,8 @@ class CalculateEnergysController < ApplicationController
 
     ration_energy = @amount_of_energy - @pocari/100 * Drink.find_by(name: "ポカリ").energy
 
-    # エネルギー量 (ﾁｮｺ + 羊羹 + ﾄﾞﾗｲﾌﾙｰﾂ)
-    bace_set = Ration.find_by(name: "チョコレート").energy + Ration.find_by(name: "羊羹").energy + Ration.find_by(name: "ドライフルーツ").energy
+    # エネルギー量 (id:1 ﾁｮｺ)(id:2 羊羹)(id:3 ﾄﾞﾗｲﾌﾙｰﾂ)
+    bace_set = Ration.find_by(id: 1).energy + Ration.find_by(id: 2).energy + Ration.find_by(id: 3).energy
 
     basic_quantity = ration_energy / bace_set
 
@@ -101,9 +101,9 @@ class CalculateEnergysController < ApplicationController
         @dried_fruit = basic_quantity
     end
 
-    @choco_energy = @choco * Ration.find_by(name: "チョコレート").energy
-    @yokan_energy = @yokan * Ration.find_by(name: "羊羹").energy
-    @dried_fruit_energy = @dried_fruit * Ration.find_by(name: "ドライフルーツ").energy
+    @choco_energy = @choco * Ration.find_by(id: 1).energy
+    @yokan_energy = @yokan * Ration.find_by(id: 2).energy
+    @dried_fruit_energy = @dried_fruit * Ration.find_by(id: 3).energy
     @pocari_energy = @pocari/100 * Drink.find_by(name: "ポカリ").energy
     @total_energy = @choco_energy + @yokan_energy + @dried_fruit_energy + @pocari_energy
 
@@ -117,17 +117,17 @@ class CalculateEnergysController < ApplicationController
       memo.save
 
       if ration_data_params[:choco].to_i > 0
-        choco = PortableFood.new(volume: ration_data_params[:choco], ration_id: Ration.find_by(name: "チョコレート").id, memo_id: memo.id)
+        choco = PortableFood.new(volume: ration_data_params[:choco], ration_id: Ration.find_by(id: 1).id, memo_id: memo.id)
         choco.save
       end
 
       if ration_data_params[:yokan].to_i > 0
-        yokan = PortableFood.new(volume: ration_data_params[:yokan], ration_id: Ration.find_by(name: "羊羹").id, memo_id: memo.id)
+        yokan = PortableFood.new(volume: ration_data_params[:yokan], ration_id: Ration.find_by(id: 2).id, memo_id: memo.id)
         yokan.save
       end
 
       if ration_data_params[:dried_fruit].to_i > 0
-        dried_fruit = PortableFood.new(volume: ration_data_params[:dried_fruit], ration_id: Ration.find_by(name: "ドライフルーツ").id, memo_id: memo.id)
+        dried_fruit = PortableFood.new(volume: ration_data_params[:dried_fruit], ration_id: Ration.find_by(id: 3).id, memo_id: memo.id)
         dried_fruit.save
       end
 

@@ -1,8 +1,8 @@
-/ = portable_food.ration.name
-
+/ 食品の一覧を表示する
 - @portable_foods.each do |portable_food|
-  p = portable_food.ration.name
-  p = portable_food.volume
-  p = link_to "食品の編集", edit_memo_portable_food_path(@memo,portable_food)
-  p = button_to '削除', memo_portable_food_path(@memo,portable_food), method: :delete
-  br
+  .card
+    .card-body.text-secondary
+      .d-flex
+        p.me-auto.p-2 #{portable_food.ration.name} #{portable_food.volume} 個
+        p = button_to t('defaults.edit'), edit_memo_portable_food_path(@memo,portable_food), method: :get, class: 'btn btn-secondary btn-sm me-2'
+        p = button_to t('defaults.delete'), memo_portable_food_path(@memo,portable_food), method: :delete, class: 'btn btn-secondary btn-sm'

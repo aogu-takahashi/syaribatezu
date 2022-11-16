@@ -1,2 +1,3 @@
-p 食品の追加
-= render 'form', { memo: @memo, portable_food: @portable_food }
+.container.mt-4
+  p = t('.title')
+  = render 'form', { memo: @memo, portable_food: @portable_food }

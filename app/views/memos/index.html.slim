@@ -1,8 +1,8 @@
 .container.mt-4
   p = t('.title')
   = button_to t('.create'), new_memo_path, class: 'btn btn-secondary', method: :get
-  br
   - if @memos.present?
-    = render @memos
+    .row.row-cols-1.row-cols-md-3.g-4.mt-4
+      = render @memos
   - else
     p = t('.no_result')
