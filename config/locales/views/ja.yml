@@ -125,3 +125,11 @@ ja:
     create:
       success: "登山者情報を作成しました"
       fail: "登山者情報の作成に失敗しました"
+  trekking_records:
+    index:
+      title: "登山記録一覧"
+      create: "新規作成"
+      show: "詳細"
+      no_result: "登山記録がありません"
+    show:
+      title: "登山記録詳細"

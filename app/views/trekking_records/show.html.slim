@@ -1,31 +1,47 @@
-p = @trekking_record.date
-
-= @trekking_record.course.mountain.name
-br
-= @trekking_record.course.name
-br
-= @trekking_record.temperature
-br
-= @trekking_record.description
-br
-= @trekking_record.done
-= form_with model: @trekking_record, local: true do |f|
-  = f.check_box :done, {}, "done", "not_done"
-  = f.submit "更新"
-br
-- if @portable_foods.present?
-  = render "trekking_records/portable_food", collection: @portable_foods
-- else
-  p t('.no_result')
-
-br
-- if @portable_drinks.present?
-  = render "trekking_records/portable_drink", collection: @portable_drinks
-- else
-  p t('.no_result')
-br
-= @trekking_record.description
-br
-= link_to "コメントの追加・編集", edit_trekking_record_path(@trekking_record)
-br
-= button_to '記録の削除', trekking_record_path(@trekking_record), method: :delete
+.container.mt-4
+  p = t('.title')
+  = button_to '記録の削除', trekking_record_path(@trekking_record), method: :delete, class: 'btn btn-secondary btn-sm'
+  .card.mx-auto.mt-2 style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.course_data')
+    .card-body.text-secondary
+      .card-title = t('.date')
+      .card-text = @trekking_record.date
+    .card-body.text-secondary
+      .card-title = t('.mountain_name')
+      .card-text = @trekking_record.course.mountain.name
+    .card-body.text-secondary
+      .card-title = t('.course_name')
+      .card-text = @trekking_record.course.name
+    .card-body.text-secondary
+      .card-title = t('.temperature')
+      .card-text #{@trekking_record.temperature} ℃
+  .card.mt-4.mx-auto style="max-width: 30rem;"
+    .card-header 
+      p.card-title.text-center = t('.portable_food')
+    - if @portable_foods.present?
+      = render "trekking_records/portable_food", collection: @portable_foods
+    - else
+      p = t('.no_result')
+  .card.mt-4.mx-auto style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.portable_drink')
+    - if @portable_drinks.present?
+      = render "trekking_records/portable_drink", collection: @portable_drinks
+    - else
+      p = t('.no_result')
+  .card.mx-auto.mt-2 style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.description')
+    .card-body.text-secondary
+      .card-text
+        - if @trekking_record.description.present?
+          = @trekking_record.description
+        - else
+          p = t('.no_result')
+  .text-center.mt-3
+      = button_to "コメントの追加・編集", edit_trekking_record_path(@trekking_record), method: :get, class: 'btn btn-secondary btn-sm'
+  .text-center.mt-5.mb-5
+    = form_with model: @trekking_record, local: true do |f|
+      = f.select :done, [[t('.done'), 'done'], [t('.not_done'), 'not_done']]
+      = f.submit "更新", class: 'btn btn-secondary btn-sm '

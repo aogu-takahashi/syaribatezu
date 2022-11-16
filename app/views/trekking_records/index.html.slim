@@ -1,6 +1,7 @@
-p 登山記録一覧
-
-- if @trekking_records.present?
-  = render partial: 'trekking_record', collection: @trekking_records
-- else
-  p t('.no_result')
+.container.mt-4
+  p = t('.title')
+  - if @trekking_records.present?
+    .row.row-cols-1.row-cols-md-3.g-4.mt-4  
+      = render partial: 'trekking_record', collection: @trekking_records
+  - else
+    = t('.no_result')

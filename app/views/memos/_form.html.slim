@@ -11,10 +11,7 @@
   .col-md-6
     = f.label :temperature, class: "form-label"
     = f.text_field :temperature, class: "form-control"
-  .mb-3.mt-3
-    = f.label :description, class: "form-label"
-    = f.text_field :description, class: "form-control"
-  .mb-3
+  .mb-3.mt-2
     = f.label :done, class: "form-label"
     = f.select :done, { '未完了': 'not_done', '完了': 'done' }, {}, class: "form-select"
   .col-12

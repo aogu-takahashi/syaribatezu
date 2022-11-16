@@ -1,1 +1,9 @@
-= link_to trekking_record.date, trekking_record_path(trekking_record)
+.col
+  .card.mb-4
+    .card-header.text-center
+      = trekking_record.course.mountain.name
+    .card-body.text-secondary
+      h5.card-title = trekking_record.course.name
+      p.card-text = trekking_record.date
+      .text-center
+        = link_to t('trekking_records.index.show'), trekking_record_path(trekking_record), class: 'btn btn-secondary btn-sm '
