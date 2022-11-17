@@ -1,16 +1,18 @@
-= @user.age
-
-= @course.name
-
-= form_with url: calculate_energys_path, method: :post do |f|
-  = f.label :date, '日付'
-  = f.date_field :date, value: Time.now.strftime("%Y-%m-%d")
-  = f.label :temperature, '気温(℃)'
-  = f.text_field :temperature, value: 20
-  = f.hidden_field :age, value: @user.age
-  = f.hidden_field :sex, value: @user.sex
-  = f.hidden_field :height, value: @user.height
-  = f.hidden_field :weight, value: @user.weight
-  = f.hidden_field :rucksack_weight, value: @user.rucksack_weight
-  = f.hidden_field :course_id, value: @course.id
-  = f.submit '計算する'
+.container.mt-4
+  .md-3
+    p = t('.title')
+  p = t('.other_data')
+  = form_with url: calculate_energys_path, method: :post do |f|
+    .mb-3
+      = f.label :date, t('.date'), class: "form-label"
+      = f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control"
+    .mb-3
+      = f.label :temperature, t('.temperature'), class: "form-label"
+      = f.number_field :temperature, value: 20, class: "form-control"
+    = f.hidden_field :age, value: @user.age
+    = f.hidden_field :sex, value: @user.sex
+    = f.hidden_field :height, value: @user.height
+    = f.hidden_field :weight, value: @user.weight
+    = f.hidden_field :rucksack_weight, value: @user.rucksack_weight
+    = f.hidden_field :course_id, value: @course.id
+    = f.submit t('.submit'), class: "btn btn-secondary"

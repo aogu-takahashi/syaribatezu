@@ -1,2 +1,2 @@
-= label :memo, :course_id
+= label :memo, :course_id, "コース"
 = collection_select :memo, :course_id, Course.where(mountain_id: mountain_id), :id, :name, {prompt: "コースを選択"}, {class: "form-control"}

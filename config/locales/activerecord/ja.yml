@@ -15,7 +15,7 @@ ja:
     attributes:
       course:
         name: "コース名"
-        day: "日数"
+        days: "登山日数"
         walking_time: "歩行時間"
         distance: "距離"
         denivele_plus: "上りの累積標高差"
@@ -24,7 +24,11 @@ ja:
         name: "ドリンク名"
         energy: "エネルギー"
       memo:
+        mountain_id: "山"
+        course_id: "コース"
+        date: "登山日"
         temperature: "気温"
+        description: "詳細メモ"
         done: "実施状況"
       mountain:
         name: "山名"

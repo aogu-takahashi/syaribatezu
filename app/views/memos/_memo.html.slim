@@ -1,1 +1,9 @@
-= link_to memo.date , memo_path(memo)
+.col
+  .card.mb-4
+    .card-header.text-center
+      = memo.course.mountain.name
+    .card-body.text-secondary
+      h5.card-title = memo.course.name
+      p.card-text = memo.date
+      .text-center
+        = link_to t('memos.index.show'), memo_path(memo), class: 'btn btn-secondary btn-sm '

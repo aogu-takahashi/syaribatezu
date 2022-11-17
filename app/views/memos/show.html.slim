@@ -1,31 +1,43 @@
-p = @memo.date
-
-= @memo.course.mountain.name
-br
-= @memo.course.name
-br
-= @memo.temperature
-br
-= @memo.description
-br
-= @memo.done
-= form_with model: @memo, local: true do |f|
-  = f.check_box :done, {}, "done", "not_done"
-  = f.submit "更新"
-br
-= link_to 'コースの編集', edit_memo_path(@memo)
-br
-- if @portable_foods.present?
-  = render "memos/portable_food", collection: @portable_foods
-- else
-  p t('.no_result')
-= link_to "食品の追加", new_memo_portable_food_path(@memo)
-br
-- if @portable_drinks.present?
-  = render "memos/portable_drink", collection: @portable_drinks
-- else
-  p t('.no_result')
-= link_to "水分の追加", new_memo_portable_drink_path(@memo)
-
-
-= button_to 'メモの削除', memo_path(@memo), method: :delete
+.container.mt-4
+  p = t('.title')
+  = button_to 'メモの削除', memo_path(@memo), method: :delete, class: 'btn btn-secondary btn-sm'
+  .card.mx-auto.mt-2 style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.course_data')
+    .card-body.text-secondary
+      .card-title = t('.date')
+      .card-text = @memo.date
+    .card-body.text-secondary
+      .card-title = t('.mountain_name')
+      .card-text = @memo.course.mountain.name
+    .card-body.text-secondary
+      .card-title = t('.course_name')
+      .card-text = @memo.course.name
+    .card-body.text-secondary
+      .card-title = t('.temperature')
+      .card-text #{@memo.temperature} ℃
+      .text-center
+        = button_to 'コースの編集', edit_memo_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
+  .card.mt-4.mx-auto style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.portable_food')
+    - if @portable_foods.present?
+      = render "memos/portable_food", collection: @portable_foods
+    - else
+      p = t('.no_result')  
+  .text-center.mt-3
+    = button_to "食品の追加", new_memo_portable_food_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
+  .card.mt-4.mx-auto style="max-width: 30rem;"
+    .card-header
+      p.card-title.text-center = t('.portable_drink')
+    - if @portable_drinks.present?
+      = render "memos/portable_drink", collection: @portable_drinks
+    - else
+      p = t('.no_result')
+  .text-center.mt-3
+    = button_to "水分の追加", new_memo_portable_drink_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
+  .text-center.mt-5.mb-5
+    = form_with model: @memo, local: true do |f|
+        = f.select :done, [[t('.done'), 'done'], [t('.not_done'), 'not_done']]
+        = f.submit "更新", class: 'btn btn-secondary btn-sm '
+  = link_to "山一覧に戻る", mountains_path, class: 'text-secondary'

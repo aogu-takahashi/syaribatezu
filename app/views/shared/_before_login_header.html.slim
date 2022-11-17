@@ -1,6 +1,14 @@
 header
-  li = link_to (t 'defaults.calculate'), prefectures_calculate_energys_path
-  li = link_to (t 'defaults.sign_up'), new_user_path
-  li = link_to (t 'defaults.login'), login_path
-  li = link_to (t 'defaults.privacy_policy'), '#'
-  li = link_to (t 'defaults.inquiry'), '#'
+  nav class="navbar navbar-expand-lg navbar-light bg-light"
+    div class="container-fluid"
+      = link_to image_tag("logo.png"), root_path, class: "navbar-brand"
+      button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+        span class="navbar-toggler-icon"
+      div class="collapse navbar-collapse" id="navbarSupportedContent"
+        ul class="navbar-nav me-auto mb-2 mb-lg-0"
+          li class="nav-item"
+            = link_to (t 'defaults.calculate'), prefectures_calculate_energys_path, class: "nav-link"
+          li class="nav-item"
+            = link_to (t 'defaults.sign_up'), new_user_path, class: "nav-link"
+          li class="nav-item"
+            = link_to (t 'defaults.login'), login_path, class: "nav-link"

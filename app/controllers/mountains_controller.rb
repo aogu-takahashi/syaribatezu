@@ -15,7 +15,7 @@ class MountainsController < ApplicationController
     if @mountain.save
       user_mountain = UserMountain.new(user_mountain_params)
       user_mountain.save
-      redirect_to mountains_path, notice: "山情報を作成しました"
+      redirect_to mountains_path, success: "山情報を作成しました"
     else
       flash.now[:notice] = "山情報の作成に失敗しました"
       render :new
@@ -30,7 +30,7 @@ class MountainsController < ApplicationController
   def destroy
     set_mountain
     @mountain.destroy!
-    redirect_to mountains_path, notice: "山情報を削除しました"
+    redirect_to mountains_path, success: "山情報を削除しました"
   end
 
   def edit
@@ -40,7 +40,7 @@ class MountainsController < ApplicationController
   def update
     set_mountain
     if @mountain.update(mountain_params)
-      redirect_to mountain_path(@mountain), notice: "山情報を更新しました"
+      redirect_to mountain_path(@mountain), success: "山情報を更新しました"
     else
       flash.now[:notice] = "山情報の更新に失敗しました"
       render :edit

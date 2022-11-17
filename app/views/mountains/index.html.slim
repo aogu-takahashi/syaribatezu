@@ -1,11 +1,9 @@
-form
-  input placeholder="検索ワード" type="search"
-  input type="submit" value="検索"
-p mountain index
-
-li = link_to "山を登録する", new_mountain_path
-
-- if @mountains.present?
-    = render @mountains
-- else
-  p t('.no_result')
+/ Desc: 山一覧ページ
+.container.mt-4
+  p = t('.title')
+  = button_to t('.create'), new_mountain_path, class: 'btn btn-secondary btn-sm', method: :get
+  .mt-2
+    - if @mountains.present?
+        = render @mountains
+    - else
+      p = t('.no_result')

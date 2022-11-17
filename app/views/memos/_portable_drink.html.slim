@@ -1,6 +1,6 @@
 - @portable_drinks.each do |portable_drink|
-  p = portable_drink.drink.name
-  p = portable_drink.volume
-  p = link_to "水分の編集", edit_memo_portable_drink_path(@memo,portable_drink)
-  p = button_to '削除', memo_portable_drink_path(@memo,portable_drink), method: :delete
-  br
+  .card-body.text-secondary
+    .d-flex
+      .me-auto.p2  #{portable_drink.drink.name} #{portable_drink.volume} ml
+      p = button_to t('defaults.edit'), edit_memo_portable_drink_path(@memo,portable_drink), method: :get, class: 'btn btn-secondary btn-sm me-2'
+      p = button_to t('defaults.delete'), memo_portable_drink_path(@memo,portable_drink), method: :delete, class: 'btn btn-secondary btn-sm'

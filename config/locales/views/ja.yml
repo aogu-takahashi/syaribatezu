@@ -7,18 +7,41 @@ ja:
     sign_up: "新規登録"
     privacy_policy: "プライバシーポリシー"
     inquiry: "お問い合わせ"
+    edit: "編集"
+    delete: "削除"
+    select: "選択"
   calculate_energys:
     prefectures:
       title: "エネルギー計算"
+      prefecture_select: "都道府県を選択"
+      no_result: "該当する都道府県が見つかりませんでした。"
     mountains:
       title: "エネルギー計算"
+      course_select: "コースを選択"
+      mountain_select: "山"
+    get_courses:
+      mountain: "山"
     set_user:
       title: "エネルギー計算"
+      user_data: "登山者情報の入力"
     set_other:
       title: "エネルギー計算"
+      other_data: "その他情報の入力"
+      date: "日付"
+      temperature: '気温(℃)'
+      submit: "計算する"
     create:
       title: "エネルギー計算"
+      calculation_result: "計算結果"
+      energy_consumption: "行動中のエネルギー消費量"
+      water_requirements: "必要水分量"
+      recommendation_ration: "おすすめの行動食"
+      recommendation_water: "おすすめの飲み物"
+      total_energy: "行動食・ポカリの合計エネルギー"
+      save: "保存する"
   courses:
+    create:
+      success: "コースを作成しました"
     show:
       title: "コース詳細"
     new:
@@ -28,21 +51,53 @@ ja:
   memos:
     index:
       title: "メモ一覧"
+      create: "新規作成"
+      show: "詳細"
+      no_result: "メモがありません"
     new:
-      title: "メモ登録"
+      title: "メモの登録"
     show:
       title: "メモ詳細"
+      course_data: "コース情報"
+      date: "日付"
+      mountain_name: "山名"
+      course_name: "コース名"
+      temperature: "気温"
+      portable_food: "行動食"
+      portable_drink: "携帯飲料"
+      no_result: "食品がりません"
+      add_food: "食品の追加"
+      done: "実施"
+      not_done: "未実施"
     edit:
       title: "メモ編集"
+  mountains:
+    new:
+      title: "山の登録"
+    index:
+      title: "山一覧"
+      create: "山の登録"
+    show:
+      title: "山情報"
+      mountain_name: "山名"
+      prefecture: "所在地"
   users:
     new:
       title: "ユーザー登録"
       to_login_page: "ログインページへ"
+    create:
+      success: "ユーザーを作成しました"
+      fail: "ユーザーの作成に失敗しました"
   user_sessions:
     new:
       title: "ログイン"
       to_register_page: "ユーザー登録ページへ"
       forget_password: "パスワードを忘れた方はこちら"
+    create:
+      success: "ログインしました"
+      fail: "ログインに失敗しました"
+    destroy:
+      success: "ログアウトしました"
   password_resets:
     new:
       title: "パスワード再設定"
@@ -54,3 +109,44 @@ ja:
     update:
       success: "パスワードを再設定しました。"
       fail: "パスワード再設定に失敗しました。"
+  portable_foods:
+    edit:
+      title: "食品の編集"
+      ration: "行動食"
+      submit: "更新する"
+    new:
+      title: "食品の追加"
+  portable_drinks:
+    edit:
+      title: "飲料の編集"
+      drink: "携帯飲料"
+      submit: "更新する"
+    new:
+      title: "飲料の追加"
+  profiles:
+    show:
+      title: "プロフィール"
+    edit:
+      title: "登山者情報の編集"
+      submit: "更新する"
+    create:
+      success: "登山者情報を作成しました"
+      fail: "登山者情報の作成に失敗しました"
+  trekking_records:
+    index:
+      title: "登山記録一覧"
+      create: "新規作成"
+      show: "詳細"
+      no_result: "登山記録がありません"
+    show:
+      title: "登山記録詳細"
+      delete: "記録の削除"
+      course_data: "コース情報"
+      date: "日付"
+      mountain_name: "山名"
+      course_name: "コース名"
+      temperature: "気温"
+      portable_food: "行動食"
+      portable_drink: "携帯飲料"
+      description: "記録の詳細"
+      no_result: "情報がありません"

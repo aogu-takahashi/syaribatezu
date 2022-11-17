@@ -1,19 +1,27 @@
-div 
-  h1 登山者情報の編集
-  = form_with model: @user, url: profile_path, local: true do |f|
+.container.mt-3
+  p = t('.title')
+  = form_with model: @user, url: profile_path, local: true, class: "row g-3" do |f|
     = render 'shared/error_messages', object: f.object
-    = f.label :name
-    = f.text_field :name
-    = f.label :email
-    = f.text_field :email
-    = f.label :age
-    = f.text_field :age
-    = f.label :sex
-    = f.select :sex, User.sexes.keys
-    = f.label :height
-    = f.text_field :height
-    = f.label :weight
-    = f.text_field :weight
-    = f.label :rucksack_weight
-    = f.text_field :rucksack_weight
-    = f.submit '編集'
+    .col-md-12
+      = f.label :name, class: "form-label"
+      = f.text_field :name, class: "form-control", placeholder: "山田　登" , required: :true
+    .col-md-12
+      = f.label :email, class: "form-label"
+      = f.text_field :email, class: "form-control", required: :true
+    .col-md-6
+      = f.label :age, class: "form-label"
+      = f.text_field :age, class: "form-control", required: :true
+    .col-md-6
+      = f.label :sex, class: "form-label"
+      = f.select :sex, User.sexes.keys, {}, class: "form-select"
+    .col-md-6
+      = f.label :height, class: "form-label"
+      = f.text_field :height, class: "form-control", required: :true
+    .col-md-6
+      = f.label :weight, class: "form-label"
+      = f.text_field :weight, class: "form-control", required: :true
+    .col-md-12
+      = f.label :rucksack_weight, class: "form-label"
+      = f.text_field :rucksack_weight, class: "form-control", required: :true
+    .col-md-12
+      = f.submit (t '.submit'), class: "btn btn-secondary"
