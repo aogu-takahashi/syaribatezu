@@ -5,7 +5,8 @@ class CoursesController < ApplicationController
   end
   
   def create
-    @course = Course.new(course_params)
+    # @course = Course.new(course_params)
+    @course = current_user.courses.new(course_params)
     if @course.save
       redirect_to mountain_path(params[:mountain_id]), success:  t('.success')
     else
@@ -15,29 +16,33 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
+    # @course = Course.find(params[:id])
+    @course = current_user.courses.find(params[:id])
     @mountain = Mountain.find(params[:mountain_id])
   end
 
   def edit
-    @course = Course.find(params[:id])
+    # @course = Course.find(params[:id])
+    @course = current_user.courses.find(params[:id])
     @mountain = Mountain.find(params[:mountain_id])
   end
 
   def update
-    @course = Course.find(params[:id])
+    # @course = Course.find(params[:id])
+    @course = current_user.courses.find(params[:id])
     if @course.update(course_params)
-      redirect_to mountain_path(params[:mountain_id]), notice:  "Course was successfully updated."
+      redirect_to mountain_path(params[:mountain_id]), success:  t('.success')
     else
-      flash.now[:notice] = "コースの更新に失敗しました"
+      flash.now[:danger] = t('.failure')
       render :edit
     end
   end
 
   def destroy
-    @course = Course.find(params[:id])
+    # @course = Course.find(params[:id])
+    @course = current_user.courses.find(params[:id])
     @course.destroy
-    redirect_to mountain_path(params[:mountain_id]), notice:  "Course was successfully destroyed."
+    redirect_to mountain_path(params[:mountain_id]), success: t('.success')
   end
 
   private
