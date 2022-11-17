@@ -1,6 +1,6 @@
 .container.mt-4
   p = t('.title')
-  = button_to '記録の削除', trekking_record_path(@trekking_record), method: :delete, class: 'btn btn-secondary btn-sm'
+  = button_to t('.delete'), trekking_record_path(@trekking_record), method: :delete, class: 'btn btn-secondary btn-sm'
   .card.mx-auto.mt-2 style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.course_data')
@@ -45,3 +45,4 @@
     = form_with model: @trekking_record, local: true do |f|
       = f.select :done, [[t('.done'), 'done'], [t('.not_done'), 'not_done']]
       = f.submit "更新", class: 'btn btn-secondary btn-sm '
+  = link_to "記録一覧に戻る", trekking_records_path, class: 'text-secondary'

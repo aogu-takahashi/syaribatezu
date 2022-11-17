@@ -1,6 +1,6 @@
 class MemosController < ApplicationController
   def index
-    @memos = Memo.where(done: 0).includes(course: :mountain).order(date: :desc)
+    @memos = current_user.memos.includes(course: :mountain).order(date: :desc)
   end
 
   def new

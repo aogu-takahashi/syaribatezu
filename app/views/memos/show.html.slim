@@ -40,3 +40,4 @@
     = form_with model: @memo, local: true do |f|
         = f.select :done, [[t('.done'), 'done'], [t('.not_done'), 'not_done']]
         = f.submit "更新", class: 'btn btn-secondary btn-sm '
+  = link_to "山一覧に戻る", mountains_path, class: 'text-secondary'

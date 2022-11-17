@@ -1,6 +1,6 @@
 class TrekkingRecordsController < ApplicationController
   def index
-    @trekking_records = Memo.where(done: 1).order(created_at: :desc)
+    @trekking_records = current_user.memos.where(done: 1).includes(course: :mountain).order(date: :desc)
   end
 
   def show

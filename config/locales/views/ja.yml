@@ -74,6 +74,13 @@ ja:
   mountains:
     new:
       title: "山の登録"
+    index:
+      title: "山一覧"
+      create: "山の登録"
+    show:
+      title: "山情報"
+      mountain_name: "山名"
+      prefecture: "所在地"
   users:
     new:
       title: "ユーザー登録"
@@ -133,3 +140,13 @@ ja:
       no_result: "登山記録がありません"
     show:
       title: "登山記録詳細"
+      delete: "記録の削除"
+      course_data: "コース情報"
+      date: "日付"
+      mountain_name: "山名"
+      course_name: "コース名"
+      temperature: "気温"
+      portable_food: "行動食"
+      portable_drink: "携帯飲料"
+      description: "記録の詳細"
+      no_result: "情報がありません"

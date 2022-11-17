@@ -1,4 +1,6 @@
-p = course.name
-
-= button_to "削除", mountain_course_path(@mountain, course), method: :delete
-= link_to "編集", edit_mountain_course_path(@mountain, course)
+.card
+  .card-body.text-secondary
+    .d-flex
+      p.me-auto.p-2 = course.name
+      = button_to "編集", edit_mountain_course_path(@mountain, course), method: :get, class: 'btn btn-secondary btn-sm me-2'
+      = button_to "削除", mountain_course_path(@mountain, course), method: :delete, class: 'btn btn-secondary btn-sm'
