@@ -91,6 +91,8 @@ ja:
       course: "コース"
       add_course: "コースの追加"
       back: "山一覧に戻る"
+    edit:
+      title: "山情報の編集"
   users:
     new:
       title: "ユーザー登録"

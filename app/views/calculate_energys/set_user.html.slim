@@ -7,7 +7,7 @@
       = f.number_field :age, class: "form-control"
     .mb-3
       = f.label :sex, class: "form-label"
-      = f.select :sex, User.sexes.keys, {}, {class: "form-control"}
+      = f.select :sex, User.sexes_i18n.invert, {}, {class: "form-control"}
     .mb-3
       = f.label :height, class: "form-label"
       = f.number_field :height, class: "form-control"

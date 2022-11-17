@@ -1,0 +1,10 @@
+p = t('.ration_edit')
+
+= form_with model: @ration, url: admin_ration_path(@ration), local: true do |f|
+  = f.label :id
+  = f.text_field :id, class: 'form-control'
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
+  = f.label :energy
+  = f.text_field :energy, class: 'form-control'
+  = f.submit (t '.update'), class: 'btn btn-block btn-primary'

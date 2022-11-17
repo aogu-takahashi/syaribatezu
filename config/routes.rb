@@ -35,4 +35,13 @@ Rails.application.routes.draw do
       get "get_courses"
     end
   end
+
+  namespace :admin do
+    root to: "dashbords#index"
+    get 'login', to: "user_sessions#new"
+    post 'login', to: "user_sessions#create"
+    delete 'logout', to: "user_sessions#destroy"
+    resources :prefecture, only: %i[index new create edit update destroy]
+    resources :ration, only: %i[index new create edit update destroy]
+  end
 end
