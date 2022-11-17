@@ -1,6 +1,6 @@
 .container.mt-3
   - if current_user.id == @mountain.user_mountains.first.user_id
-    = button_to "山を削除する", mountain_path(@mountain), method: :delete, class: 'btn btn-secondary btn-sm'
+    = button_to t('.delete'), mountain_path(@mountain), method: :delete, class: 'btn btn-secondary btn-sm'
   .card.mx-auto.mt-4 style="max-width: 30rem;"
     .card-header.text-center
       p.card-title = t('.title')
@@ -13,7 +13,7 @@
         .card-text.me-3 = prefecture.name
   - if current_user.id == @mountain.user_mountains.first.user_id
     .text-center.mt-3
-      = button_to "山情報を編集する", edit_mountain_path(@mountain), method: :get, class: 'btn btn-secondary btn-sm3 btn-sm'
+      = button_to t('.mountain_edit'), edit_mountain_path(@mountain), method: :get, class: 'btn btn-secondary btn-sm3 btn-sm'
   .card.mt-4.mx-auto style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.course')
@@ -22,5 +22,5 @@
     - else
       p = t('.no_result')
   .text-center.mt-3
-    = button_to "コースを追加する", new_mountain_course_path(@mountain.id), method: :get, class: 'btn btn-secondary btn-sm'
-  = link_to "山一覧に戻る", mountains_path, class: 'text-secondary'
+    = button_to t('.add_course'), new_mountain_course_path(@mountain.id), method: :get, class: 'btn btn-secondary btn-sm'
+  = link_to t('.back'), mountains_path, class: 'text-secondary'

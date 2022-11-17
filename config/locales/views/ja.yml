@@ -48,6 +48,11 @@ ja:
       title: "コース登録"
     edit:
       title: "コース編集"
+    update:
+      success: "コースを更新しました"
+      failure: "コースの更新に失敗しました"
+    destroy:
+      success: "コースを削除しました"
   memos:
     index:
       title: "メモ一覧"
@@ -79,8 +84,13 @@ ja:
       create: "山の登録"
     show:
       title: "山情報"
+      delete: "山の削除"
       mountain_name: "山名"
       prefecture: "所在地"
+      mountain_edit: "山情報の編集"
+      course: "コース"
+      add_course: "コースの追加"
+      back: "山一覧に戻る"
   users:
     new:
       title: "ユーザー登録"
