@@ -1,2 +1,2 @@
 = label :course, :course_id, "コース", class: "form-label"
-= collection_select :course, :course_id, Course.where(mountain_id: mountain_id), :id, :name, {}, {class: "form-control"}
+= collection_select :course, :course_id, Course.where(mountain_id: mountain_id), :id, :name, { include_blank: "コースを選択してください" }, { class: "form-select" }
