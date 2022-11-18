@@ -1,0 +1,8 @@
+p = t('.drink_edit')
+
+= form_with model: @drink, url: admin_drink_path(@drink), local: true do |f|
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
+  = f.label :energy
+  = f.text_field :energy, class: 'form-control'
+  = f.submit (t '.update'), class: 'btn btn-block btn-primary'

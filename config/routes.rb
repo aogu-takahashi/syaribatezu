@@ -43,5 +43,6 @@ Rails.application.routes.draw do
     delete 'logout', to: "user_sessions#destroy"
     resources :prefecture, only: %i[index new create edit update destroy]
     resources :ration, only: %i[index new create edit update destroy]
+    resources :drinks, only: %i[index new create edit update destroy]
   end
 end

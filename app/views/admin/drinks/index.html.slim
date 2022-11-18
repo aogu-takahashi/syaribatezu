@@ -1,0 +1,8 @@
+p = t('.drink_index')
+= button_to t('defaults.create'), new_admin_drink_path, class: 'btn btn-secondary', method: :get
+
+- if @drinks.present?
+  = @drinks.each do |drink|
+    = render 'drink', drink: drink
+- else
+  p = t('.no_result')

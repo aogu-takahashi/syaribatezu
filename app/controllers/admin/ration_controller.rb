@@ -42,6 +42,6 @@ class Admin::RationController < Admin::BaceController
   end
 
   def ration_params
-    params.require(:ration).permit(:id, :name)
+    params.require(:ration).permit(:id, :name, :energy)
   end
 end
