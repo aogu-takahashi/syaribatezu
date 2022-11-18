@@ -1,0 +1,8 @@
+p prefecture index 
+= button_to t('defaults.create'), new_admin_prefecture_path, class: 'btn btn-secondary', method: :get
+
+- if @prefectures.present?
+  = @prefectures.each do |prefecture|
+    = render 'prefecture', prefecture: prefecture
+- else
+  p = t('.no_result')

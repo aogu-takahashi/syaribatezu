@@ -51,3 +51,11 @@ ja:
         height: "身長"
         weight: "体重"
         rucksack_weight: "荷物重量"
+  enums:
+    user:
+      sex:
+        man: "男性"
+        woman: "女性"
+      role:
+        general: "一般"
+        admin: "管理者"

@@ -2,7 +2,7 @@ class CalculateEnergysController < ApplicationController
   skip_before_action :require_login
 
   def prefectures
-    @prefectures = Prefecture.all
+    @prefectures = Prefecture.all.order(:id)
   end
 
   def mountains

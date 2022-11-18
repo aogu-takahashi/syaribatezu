@@ -1,3 +1,7 @@
 .top-wrapper
-  .top-inner-text
-    h1 シャリバテず！
+  .text-center
+    h1 = image_tag("top.png", alt: "シャリバテず！")
+    .text-center
+      p.text-secondary 管理栄養士が作った、行動食計算アプリ
+      .top-button
+        = button_to '計算する', '#', class: 'btn btn-secondary', method: :get

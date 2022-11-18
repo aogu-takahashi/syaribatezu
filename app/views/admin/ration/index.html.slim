@@ -1,0 +1,8 @@
+p ration index 
+= button_to t('defaults.create'), new_admin_ration_path, class: 'btn btn-secondary', method: :get
+
+- if @rations.present?
+  = @rations.each do |ration|
+    = render 'ration', ration: ration
+- else
+  p = t('.no_result')
