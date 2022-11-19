@@ -7,5 +7,6 @@ FactoryBot.define do
     denivele_plus { 0 }
     denivele_minus { 0 }
     association :mountain, factory: :mountain
+    association :user, factory: :user
   end
 end

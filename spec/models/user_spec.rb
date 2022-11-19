@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
     it "パスワードがなければ無効な状態であること" do
       user.password = nil
       user.valid?
-      expect(user.errors[:password]).to include("を入力してください")
+      expect(user.errors[:password]).to include("は3文字以上で入力してください")
     end
 
     it "パスワードが3文字以上であること" do
