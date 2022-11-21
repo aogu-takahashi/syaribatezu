@@ -15,7 +15,7 @@ class MemosController < ApplicationController
     @memo = current_user.memos.new(memo_params)
 
     if @memo.save
-      redirect_to memos_path
+      redirect_to memos_path, success: t(".create_success")
     else
       render :new
     end
@@ -35,8 +35,9 @@ class MemosController < ApplicationController
     set_memo
 
     if @memo.update(memo_params)
-      redirect_to memos_path
+      redirect_to memos_path, success: t(".update_success")
     else
+      flash.now[:danger] = t(".update_failure")
       render :edit
     end
   end

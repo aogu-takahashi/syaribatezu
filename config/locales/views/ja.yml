@@ -76,6 +76,12 @@ ja:
       not_done: "未実施"
     edit:
       title: "メモ編集"
+      edit_failure: "メモが見つかりません"
+    create:
+      create_success: "メモを作成しました"
+    update:
+      update_success: "メモを更新しました"
+      update_failure: "メモの更新に失敗しました"
   mountains:
     new:
       title: "山の登録"

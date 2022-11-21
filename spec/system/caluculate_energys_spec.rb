@@ -59,7 +59,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
     end
 
     describe "計算結果" do
-      fit "計算結果が表示される" do
+      it "計算結果が表示される" do
         mountain.save
         drink.save
         choco = Ration.create(id: 1, name: "板チョコレート", energy: 280)
@@ -82,6 +82,27 @@ RSpec.describe "CaluculateEnergys", type: :system do
         expect(page).to have_content "1枚"
         expect(page).to have_content "1本"
         expect(page).to have_content "1袋"
+      end
+
+      it "計算結果が保存される" do
+        mountain.save
+        drink.save
+        choco = Ration.create(id: 1, name: "板チョコレート", energy: 280)
+        choco.save
+        yokan = Ration.create(id: 2, name: "よかん", energy: 170)
+        yokan.save
+        dry_fruit = Ration.create(id: 3, name: "ドライフルーツ", energy: 100)
+        dry_fruit.save
+        login_as(user)
+        visit prefectures_calculate_energys_path
+        click_link mountain.prefectures.first.name
+        select mountain.name, match: :first
+        select mountain.courses.first.name, match: :first
+        click_on "次へ"
+        click_on "次へ"
+        click_button "計算する"
+        click_button "保存する"
+        expect(Memo.count).to eq 1
       end
     end
   end
