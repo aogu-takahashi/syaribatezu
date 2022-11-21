@@ -70,7 +70,7 @@ RSpec.describe "UserSessions", type: :system do
       login_as(user)
     end
 
-    fit "ログアウトが成功する" do
+    it "ログアウトが成功する" do
       visit root_path
       click_on "ログアウト"
       expect(page).to have_content "ログアウトしました"

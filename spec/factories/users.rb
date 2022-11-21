@@ -4,9 +4,10 @@ FactoryBot.define do
     sequence(:email) { |n| "test#{n}@example.com" }
     password { "password" }
     password_confirmation { "password" }
-    age { 20 }
+    age { 32 }
     sex { "man" }
-    height { 170 } 
-    weight { 65 }
+    height { 175 } 
+    weight { 75 }
+    rucksack_weight { 10 }
   end
 end
