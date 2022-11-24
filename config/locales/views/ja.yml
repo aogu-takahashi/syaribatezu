@@ -82,6 +82,9 @@ ja:
     update:
       update_success: "メモを更新しました"
       update_failure: "メモの更新に失敗しました"
+    destroy:
+      destroy_success: "メモを削除しました"
+      destroy_failure: "メモの削除に失敗しました"
   mountains:
     new:
       title: "山の登録"

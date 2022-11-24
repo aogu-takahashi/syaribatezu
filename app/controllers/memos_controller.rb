@@ -28,7 +28,10 @@ class MemosController < ApplicationController
   end
 
   def edit
-    set_memo
+    if set_memo
+    else
+      redirect_to memos_path, danger: t(".edit_failure")
+    end
   end
 
   def update
@@ -45,7 +48,7 @@ class MemosController < ApplicationController
   def destroy
     set_memo
     @memo.destroy
-    redirect_to memos_path
+    redirect_to memos_path, success: t(".destroy_success")
   end
 
   private

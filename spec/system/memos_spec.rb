@@ -121,12 +121,30 @@ RSpec.describe "Memos", type: :system do
           let(:other_user) { FactoryBot.create(:user) }
           let(:other_memo) { FactoryBot.create(:memo, user: other_user) }
 
-          xit "メモが更新されない" do
+          it "メモが更新されない" do
             other_memo.save
             visit edit_memo_path(other_memo)
             expect(page).to have_content "メモが見つかりません"
           end
         end
+      end
+    end
+  end
+
+  describe "メモの削除" do
+    before do
+      login_as(user)
+    end
+
+    let(:memo) { FactoryBot.create(:memo, user: user) }
+
+    describe "正常にメモが削除される" do
+      it "メモが削除される" do
+        memo.save
+        visit memo_path(memo)
+        click_on "メモの削除"
+        expect(page).to have_content "メモを削除しました"
+        expect(Memo.count).to eq 0
       end
     end
   end
