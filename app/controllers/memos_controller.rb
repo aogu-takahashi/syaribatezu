@@ -56,6 +56,12 @@ class MemosController < ApplicationController
     redirect_to memos_path, success: t(".destroy_success")
   end
 
+  def done
+    set_memo
+    @memo.update(done: "done")
+    redirect_to memos_path, success: t(".success")
+  end
+
   private
 
   def memo_params

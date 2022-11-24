@@ -63,7 +63,9 @@ ja:
       title: "メモの登録"
     show:
       title: "メモ詳細"
+      delete: "メモを削除"
       course_data: "コース情報"
+      edit_course: "コースを編集"
       date: "日付"
       mountain_name: "山名"
       course_name: "コース名"
@@ -72,9 +74,13 @@ ja:
       portable_drink: "携帯飲料"
       no_result: "食品がりません"
       add_food: "食品の追加"
-      done: "実施"
-      not_done: "未実施"
+      add_drink: "飲料の追加"
       show_danger: "メモが見つかりませんでした"
+      done: "実施完了"
+      change_to_trekking_record: "登山記録に変更"
+      cancel: "キャンセル"
+      change: "変更する"
+      back_to_memo_index: "メモ一覧に戻る"
     edit:
       title: "メモ編集"
       edit_danger: "メモが見つかりません"
@@ -86,6 +92,8 @@ ja:
     destroy:
       destroy_success: "メモを削除しました"
       destroy_failure: "メモの削除に失敗しました"
+    done:
+      success: "メモを登山記録に変更しました"
   mountains:
     new:
       title: "山の登録"

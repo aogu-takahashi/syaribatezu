@@ -34,6 +34,9 @@ Rails.application.routes.draw do
       get "get_mountain"
       get "get_courses"
     end
+    member do
+      get "done", to: "memos#done"
+    end
   end
 
   namespace :admin do
