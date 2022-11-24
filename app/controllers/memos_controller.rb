@@ -22,15 +22,20 @@ class MemosController < ApplicationController
   end
 
   def show
-    @memo = current_user.memos.includes(course: :mountain).find(params[:id])
-    @portable_foods = PortableFood.includes(:ration).where(memo_id: params[:id])
-    @portable_drinks = PortableDrink.includes(:drink).where(memo_id: params[:id])
+    if current_user.id == Memo.find(params[:id]).user_id
+      @memo = current_user.memos.includes(course: :mountain).find(params[:id])
+      @portable_foods = PortableFood.includes(:ration).where(memo_id: params[:id])
+      @portable_drinks = PortableDrink.includes(:drink).where(memo_id: params[:id])
+    else
+      redirect_to memos_path, danger: t(".show_danger")
+    end
   end
 
   def edit
-    if set_memo
+    if current_user.id == Memo.find(params[:id]).user_id
+      set_memo
     else
-      redirect_to memos_path, danger: t(".edit_failure")
+      redirect_to memos_path, danger: t(".edit_danger")
     end
   end
 

@@ -73,6 +73,7 @@ RSpec.describe "Memos", type: :system do
           select mountain.name, match: :first
           select mountain.courses.first.name, match: :first
           fill_in "memo[date]", with: "2020-01-01"
+          fill_in "memo[temperature]", with: ""
           click_on "登録"
           expect(page).to have_content "気温を入力してください"
           expect(Memo.count).to eq 0

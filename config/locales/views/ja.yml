@@ -74,9 +74,10 @@ ja:
       add_food: "食品の追加"
       done: "実施"
       not_done: "未実施"
+      show_danger: "メモが見つかりませんでした"
     edit:
       title: "メモ編集"
-      edit_failure: "メモが見つかりません"
+      edit_danger: "メモが見つかりません"
     create:
       create_success: "メモを作成しました"
     update:
@@ -150,6 +151,9 @@ ja:
     edit:
       title: "登山者情報の編集"
       submit: "更新する"
+    update:
+      success: "登山者情報を更新しました"
+      failure: "登山者情報の更新に失敗しました"
     create:
       success: "登山者情報を作成しました"
       fail: "登山者情報の作成に失敗しました"
