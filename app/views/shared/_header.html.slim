@@ -17,4 +17,4 @@ header
           li class="nav-item"
             = link_to "登山者情報", profile_path(current_user.id), class: "nav-link"
           li class="nav-item"
-            = button_to (t 'defaults.logout'), logout_path, method: :delete, class: "nav-item nav-link btn"
+            = button_to (t 'defaults.logout'), logout_path, method: :delete, class: "nav-item nav-link btn", id: "logout"

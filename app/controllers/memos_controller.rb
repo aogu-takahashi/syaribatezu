@@ -15,28 +15,37 @@ class MemosController < ApplicationController
     @memo = current_user.memos.new(memo_params)
 
     if @memo.save
-      redirect_to memos_path
+      redirect_to memos_path, success: t(".create_success")
     else
       render :new
     end
   end
 
   def show
-    @memo = Memo.includes(course: :mountain).find(params[:id])
-    @portable_foods = PortableFood.includes(:ration).where(memo_id: params[:id])
-    @portable_drinks = PortableDrink.includes(:drink).where(memo_id: params[:id])
+    if current_user.id == Memo.find(params[:id]).user_id
+      @memo = current_user.memos.includes(course: :mountain).find(params[:id])
+      @portable_foods = PortableFood.includes(:ration).where(memo_id: params[:id])
+      @portable_drinks = PortableDrink.includes(:drink).where(memo_id: params[:id])
+    else
+      redirect_to memos_path, danger: t(".show_danger")
+    end
   end
 
   def edit
-    set_memo
+    if current_user.id == Memo.find(params[:id]).user_id
+      set_memo
+    else
+      redirect_to memos_path, danger: t(".edit_danger")
+    end
   end
 
   def update
     set_memo
 
     if @memo.update(memo_params)
-      redirect_to memos_path
+      redirect_to memos_path, success: t(".update_success")
     else
+      flash.now[:danger] = t(".update_failure")
       render :edit
     end
   end
@@ -44,7 +53,7 @@ class MemosController < ApplicationController
   def destroy
     set_memo
     @memo.destroy
-    redirect_to memos_path
+    redirect_to memos_path, success: t(".destroy_success")
   end
 
   private
@@ -54,6 +63,6 @@ class MemosController < ApplicationController
   end
 
   def set_memo
-    @memo = Memo.find(params[:id])
+    @memo = current_user.memos.find(params[:id])
   end
 end

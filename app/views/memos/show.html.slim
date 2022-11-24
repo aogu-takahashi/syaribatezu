@@ -23,8 +23,6 @@
       p.card-title.text-center = t('.portable_food')
     - if @portable_foods.present?
       = render "memos/portable_food", collection: @portable_foods
-    - else
-      p = t('.no_result')  
   .text-center.mt-3
     = button_to "食品の追加", new_memo_portable_food_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
   .card.mt-4.mx-auto style="max-width: 30rem;"
@@ -32,8 +30,6 @@
       p.card-title.text-center = t('.portable_drink')
     - if @portable_drinks.present?
       = render "memos/portable_drink", collection: @portable_drinks
-    - else
-      p = t('.no_result')
   .text-center.mt-3
     = button_to "水分の追加", new_memo_portable_drink_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
   .text-center.mt-5.mb-5

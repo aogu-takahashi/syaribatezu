@@ -80,6 +80,7 @@ group :development, :test do
   gem "faker"
   gem "capybara"
   gem "webdrivers"
+  gem "capybara-screenshot"
 
   gem 'letter_opener_web', '~> 1.0'
 end
