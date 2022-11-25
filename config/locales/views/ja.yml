@@ -39,6 +39,10 @@ ja:
       recommendation_water: "おすすめの飲み物"
       total_energy: "行動食・ポカリの合計エネルギー"
       save: "保存する"
+      chocolate: "板チョコレート（50g/枚）"
+      yokan: "羊羹 （60g/本）"
+      dried_fruit: "ドライフルーツ （50g/袋）"
+      pocari_sweat: "ポカリ"
   courses:
     create:
       success: "コースを作成しました"
@@ -63,18 +67,24 @@ ja:
       title: "メモの登録"
     show:
       title: "メモ詳細"
+      delete: "メモを削除"
       course_data: "コース情報"
+      edit_course: "コースを編集"
       date: "日付"
       mountain_name: "山名"
       course_name: "コース名"
       temperature: "気温"
       portable_food: "行動食"
       portable_drink: "携帯飲料"
-      no_result: "食品がりません"
       add_food: "食品の追加"
-      done: "実施"
-      not_done: "未実施"
+      add_drink: "飲料の追加"
       show_danger: "メモが見つかりませんでした"
+      done: "実施完了"
+      change_to_trekking_record: "登山記録に変更"
+      change_to_trekking_record_confirm: "登山を実施したメモを登山記録に変更します。よろしいですか？"
+      cancel: "キャンセル"
+      change: "変更する"
+      back_to_memo_index: "メモ一覧に戻る"
     edit:
       title: "メモ編集"
       edit_danger: "メモが見つかりません"
@@ -86,6 +96,8 @@ ja:
     destroy:
       destroy_success: "メモを削除しました"
       destroy_failure: "メモの削除に失敗しました"
+    done:
+      success: "メモを登山記録に変更しました"
   mountains:
     new:
       title: "山の登録"
@@ -174,4 +186,5 @@ ja:
       portable_food: "行動食"
       portable_drink: "携帯飲料"
       description: "記録の詳細"
-      no_result: "情報がありません"
+      add_comment: "コメントの追加・編集"
+      back_to_trekking_record_index: "登山記録一覧に戻る"

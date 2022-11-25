@@ -13,22 +13,22 @@
         p.card-title.text-center = t('.recommendation_ration')
     .card-body.text-secondary
       - if @choco != 0
-        p.card-title 板チョコレート 
+        p.card-title = t('.chocolate') 
         p.card-text #{@choco}枚 #{@choco_energy}kcal
     .card-body.text-secondary
       - if @yokan != 0
-        p.card-title 羊羹(60g/本)
+        p.card-title = t('.yokan')
         p.card-text #{@yokan}本 #{@yokan_energy}kcal
     .card-body.text-secondary
       - if @dried_fruit != 0
-        p.card-title ドライフルーツ(30g/袋) 
+        p.card-title = t('.dried_fruit') 
         p.card-text #{@dried_fruit}袋 #{@dried_fruit_energy}kcal
   .card.mt-4.mx-auto style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.recommendation_water')
     .card-body.text-secondary
-      p.card-title ポカリ  
-      p.card-text #{@pocari} ml #{@pocari_energy}kcal
+      p.card-title = t('.pocari_sweat')  
+      p.card-text #{@pocari}ml #{@pocari_energy}kcal
   .card.mt-4.mx-auto style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.total_energy')

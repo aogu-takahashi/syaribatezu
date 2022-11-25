@@ -16,10 +16,10 @@ ja:
       course:
         name: "コース名"
         days: "登山日数"
-        walking_time: "歩行時間"
-        distance: "距離"
-        denivele_plus: "上りの累積標高差"
-        denivele_minus: "下りの累積標高差"
+        walking_time: "歩行時間（h）"
+        distance: "距離（km）"
+        denivele_plus: "上りの累積標高差（km）"
+        denivele_minus: "下りの累積標高差（km）"
       drink:
         name: "ドリンク名"
         energy: "エネルギー"
@@ -48,9 +48,9 @@ ja:
         password_confirmation: "パスワード確認"
         age: "年齢"
         sex: "性別"
-        height: "身長"
-        weight: "体重"
-        rucksack_weight: "荷物重量"
+        height: "身長（cm）"
+        weight: "体重（kg）"
+        rucksack_weight: "荷物重量（kg）"
   enums:
     user:
       sex:

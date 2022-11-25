@@ -21,28 +21,18 @@
       p.card-title.text-center = t('.portable_food')
     - if @portable_foods.present?
       = render "trekking_records/portable_food", collection: @portable_foods
-    - else
-      p = t('.no_result')
   .card.mt-4.mx-auto style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.portable_drink')
     - if @portable_drinks.present?
       = render "trekking_records/portable_drink", collection: @portable_drinks
-    - else
-      p = t('.no_result')
-  .card.mx-auto.mt-2 style="max-width: 30rem;"
+  .card.mx-auto.mt-4 style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.description')
     .card-body.text-secondary
       .card-text
         - if @trekking_record.description.present?
           = @trekking_record.description
-        - else
-          p = t('.no_result')
   .text-center.mt-3
-      = button_to "コメントの追加・編集", edit_trekking_record_path(@trekking_record), method: :get, class: 'btn btn-secondary btn-sm'
-  .text-center.mt-5.mb-5
-    = form_with model: @trekking_record, local: true do |f|
-      = f.select :done, [[t('.done'), 'done'], [t('.not_done'), 'not_done']]
-      = f.submit "更新", class: 'btn btn-secondary btn-sm '
-  = link_to "記録一覧に戻る", trekking_records_path, class: 'text-secondary'
+      = button_to t('.add_comment'), edit_trekking_record_path(@trekking_record), method: :get, class: 'btn btn-secondary btn-sm'
+  = link_to t('.back_to_trekking_record_index'), trekking_records_path, class: 'text-secondary'

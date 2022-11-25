@@ -1,6 +1,6 @@
 .container.mt-4
   p = t('.title')
-  = button_to 'メモの削除', memo_path(@memo), method: :delete, class: 'btn btn-secondary btn-sm'
+  = button_to t('.delete'), memo_path(@memo), method: :delete, class: 'btn btn-secondary btn-sm'
   .card.mx-auto.mt-2 style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.course_data')
@@ -17,23 +17,36 @@
       .card-title = t('.temperature')
       .card-text #{@memo.temperature} ℃
       .text-center
-        = button_to 'コースの編集', edit_memo_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
+        = button_to t('.edit_course'), edit_memo_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
   .card.mt-4.mx-auto style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.portable_food')
     - if @portable_foods.present?
       = render "memos/portable_food", collection: @portable_foods
   .text-center.mt-3
-    = button_to "食品の追加", new_memo_portable_food_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
+    = button_to t('.add_food'), new_memo_portable_food_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
   .card.mt-4.mx-auto style="max-width: 30rem;"
     .card-header
       p.card-title.text-center = t('.portable_drink')
     - if @portable_drinks.present?
       = render "memos/portable_drink", collection: @portable_drinks
   .text-center.mt-3
-    = button_to "水分の追加", new_memo_portable_drink_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
-  .text-center.mt-5.mb-5
-    = form_with model: @memo, local: true do |f|
-        = f.select :done, [[t('.done'), 'done'], [t('.not_done'), 'not_done']]
-        = f.submit "更新", class: 'btn btn-secondary btn-sm '
-  = link_to "山一覧に戻る", mountains_path, class: 'text-secondary'
+    = button_to t('.add_drink'), new_memo_portable_drink_path(@memo), method: :get, class: 'btn btn-secondary btn-sm'
+  .text-center.mt-5
+    button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      = t('.done')
+    .modal.fade id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      .modal-dialog.modal-dialog-centered
+        .modal-content
+          .modal-header.card-header
+            h5#exampleModalLabel.modal-title
+              = t('.change_to_trekking_record')
+            button type="button" class="btn-close text-secondary" data-bs-dismiss="modal" aria-label="Close"
+          .modal-body.text-secondary
+            = t('.change_to_trekking_record_confirm')
+          .modal-footer
+            button type="button" class="btn btn-light" data-bs-dismiss="modal"
+              = t('.cancel')
+            button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="location.href='#{done_memo_path(@memo)}'"
+              = t('.change')
+  = link_to t('.back_to_memo_index'), memos_path, class: 'text-secondary'
