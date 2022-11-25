@@ -1,9 +1,12 @@
-= form_with model: @user, url: password_reset_path(@token), local: true do |f|
-  = render 'shared/error_messages', object: f.object
-  = f.label :email
-  = @user.email
-  = f.label :password
-  = f.password_field :password
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-  = f.submit
+.container.mt-4
+  p = t('.title')
+  = form_with model: @user, url: password_reset_path(@token), local: true do |f|
+    = render 'shared/error_messages', object: f.object
+    .mb-3
+      = f.label :email, class: "form-label"
+      .form-label = @user.email
+      = f.label :password, class: "form-label"
+      = f.password_field :password, class: "form-control", required: :true
+      = f.label :password_confirmation, class: "form-label"
+      = f.password_field :password_confirmation, class: "form-control", required: :true
+    = f.submit "変更", class: "btn btn-secondary"
