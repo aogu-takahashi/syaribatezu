@@ -42,8 +42,8 @@
             h5#exampleModalLabel.modal-title
               = t('.change_to_trekking_record')
             button type="button" class="btn-close text-secondary" data-bs-dismiss="modal" aria-label="Close"
-          .modal-body
-            = "登山を実施したメモを登山記録に変更します。よろしいですか？"
+          .modal-body.text-secondary
+            = t('.change_to_trekking_record_confirm')
           .modal-footer
             button type="button" class="btn btn-light" data-bs-dismiss="modal"
               = t('.cancel')
