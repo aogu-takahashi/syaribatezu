@@ -54,7 +54,6 @@ class CalculateEnergysController < ApplicationController
 
     @pocari = @amount_of_water.round(-2)
 
-
     ration_energy = @amount_of_energy - @pocari/100 * Drink.find_by(name: "ポカリ").energy
 
     # エネルギー量 (id:1 ﾁｮｺ)(id:2 羊羹)(id:3 ﾄﾞﾗｲﾌﾙｰﾂ)
