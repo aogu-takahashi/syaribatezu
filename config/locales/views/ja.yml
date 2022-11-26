@@ -10,6 +10,11 @@ ja:
     edit: "編集"
     delete: "削除"
     select: "選択"
+    memo_index: "メモ一覧"
+    trekking_records: "登山記録"
+    mountain_data: "山の情報"
+    user_data: "登山者情報"
+    terms_of_service: "利用規約"
   calculate_energys:
     prefectures:
       title: "エネルギー計算"
