@@ -143,7 +143,7 @@ RSpec.describe "Memos", type: :system do
       it "メモが削除される" do
         memo.save
         visit memo_path(memo)
-        click_on "メモの削除"
+        click_on "メモを削除"
         expect(page).to have_content "メモを削除しました"
         expect(Memo.count).to eq 0
       end

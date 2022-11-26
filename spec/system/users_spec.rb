@@ -150,7 +150,7 @@ RSpec.describe "Users", type: :system do
           fill_in "user_height", with: ""
           fill_in "user_weight", with: 60
           click_button "登録"
-          expect(page).to have_content "身長を入力してください"
+          expect(page).to have_content "身長（cm）を入力してください"
         end
       end
 
@@ -166,7 +166,7 @@ RSpec.describe "Users", type: :system do
           fill_in "user_height", with: 170
           fill_in "user_weight", with: ""
           click_button "登録"
-          expect(page).to have_content "体重を入力してください"
+          expect(page).to have_content "体重（kg）を入力してください"
         end
       end
     end

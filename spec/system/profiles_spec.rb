@@ -63,14 +63,14 @@ RSpec.describe "Profiles", type: :system do
           visit edit_profile_path(user)
           fill_in "user_height", with: ""
           click_on "更新する"
-          expect(page).to have_content "身長を入力してください"
+          expect(page).to have_content "身長（cm）を入力してください"
         end
 
         it "体重が未入力" do
           visit edit_profile_path(user)
           fill_in "user_weight", with: ""
           click_on "更新する"
-          expect(page).to have_content "体重を入力してください"
+          expect(page).to have_content "体重（kg）を入力してください"
         end
       end
     end
