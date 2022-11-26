@@ -1,5 +1,7 @@
-= form_with url: password_resets_path, local: true do |f|
-  = label :email, User.human_attribute_name(:email)
-  br
-  = f.email_field :email
-  = f.submit t('password_resets.new.submit')
+.container.mt-4
+  p = t('.title')
+  = form_with url: password_resets_path, local: true do |f|
+    .mb-3
+      = label :email, User.human_attribute_name(:email), class: "form-label"
+      = f.email_field :email, class: "form-control", required: :true
+    = f.submit t('password_resets.new.submit'), class: "btn btn-secondary"
