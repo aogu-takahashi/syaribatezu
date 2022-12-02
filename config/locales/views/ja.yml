@@ -15,11 +15,13 @@ ja:
     mountain_data: "山の情報"
     user_data: "登山者情報"
     terms_of_service: "利用規約"
-  calculate_energys:
-    prefectures:
+  prefectures:
+    index:
+      prefectures:
       title: "エネルギー計算"
       prefecture_select: "山の所在地を選択"
       no_result: "該当する都道府県が見つかりませんでした。"
+  calculate_energys:
     mountains:
       title: "エネルギー計算"
       course_select: "コースを選択"

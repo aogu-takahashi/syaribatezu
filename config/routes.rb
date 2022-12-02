@@ -20,7 +20,6 @@ Rails.application.routes.draw do
 
   resources :calculate_energys, only: %i[create] do
     collection do
-      get :prefectures
       get "prefectures/:prefecture_id/mountains", to: "calculate_energys#mountains", as: "mountains"
       get 'get_courses'
       post 'set_user'
@@ -29,6 +28,7 @@ Rails.application.routes.draw do
       post 'save_memo'
     end
   end
+  resources :prefectures, only: %i[index]
   
   resources :memos do
     resources :portable_foods
