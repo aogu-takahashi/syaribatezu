@@ -1,7 +1,6 @@
 class CalculateEnergysController < ApplicationController
   skip_before_action :require_login
 
-
   def mountains
     prefecture = Prefecture.find(params[:prefecture_id])
     @mountains = prefecture.mountains
