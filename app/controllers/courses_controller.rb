@@ -1,4 +1,10 @@
 class CoursesController < ApplicationController
+  skip_before_action :require_login, only: [:index]
+  
+  def index
+    render partial: "select_course", locals: { mountain_id: params[:mountain_id] }
+  end
+
   def new
     @course = Course.new
     @mountain = Mountain.find(params[:mountain_id])

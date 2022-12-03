@@ -1,8 +1,14 @@
 class MountainsController < ApplicationController
+  skip_before_action :require_login, only: [:narrowed_index]
+
   def index
     @mountains = Mountain.all
   end
 
+  def narrowed_index
+    prefecture = Prefecture.find(params[:prefecture_id])
+    @mountains = prefecture.mountains
+  end
 
   def new
     @mountain = Mountain.new

@@ -22,10 +22,6 @@ ja:
       prefecture_select: "山の所在地を選択"
       no_result: "該当する都道府県が見つかりませんでした。"
   calculate_energys:
-    mountains:
-      title: "エネルギー計算"
-      course_select: "コースを選択"
-      mountain_select: "山"
     get_courses:
       mountain: "山"
     set_user:
@@ -111,6 +107,10 @@ ja:
     index:
       title: "山一覧"
       create: "山の登録"
+    narrowed_index:
+      title: "エネルギー計算"
+      course_select: "コースを選択"
+      mountain_select: "山"
     show:
       title: "山情報"
       delete: "山の削除"

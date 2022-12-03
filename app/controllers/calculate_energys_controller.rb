@@ -1,15 +1,6 @@
 class CalculateEnergysController < ApplicationController
   skip_before_action :require_login
 
-  def mountains
-    prefecture = Prefecture.find(params[:prefecture_id])
-    @mountains = prefecture.mountains
-  end
-
-  def get_courses
-    render partial: "select_course", locals: { mountain_id: params[:mountain_id] }
-  end
-
   def set_user
     if logged_in?
       @user = current_user
