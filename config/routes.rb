@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'login', to: "user_sessions#create"
   delete 'logout', to: "user_sessions#destroy"
 
+  post 'temperature/edit', to: "temperature#edit"
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   resources :users, only: %i[new create] do
@@ -27,14 +29,12 @@ Rails.application.routes.draw do
 
   resources :calculate_energys, only: %i[create] do
     collection do
-      post 'set_user'
-      patch 'set_other', to: "calculate_energys#set_other"
-      post 'set_other', to: "calculate_energys#set_other"
       post 'save_memo'
     end
   end
   resources :courses, only: %i[index]
   resources :prefectures, only: %i[index]
+  
   
   resources :memos do
     resources :portable_foods

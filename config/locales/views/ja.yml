@@ -22,14 +22,6 @@ ja:
       prefecture_select: "山の所在地を選択"
       no_result: "該当する都道府県が見つかりませんでした。"
   calculate_energys:
-    get_courses:
-      mountain: "山"
-    set_other:
-      title: "エネルギー計算"
-      other_data: "その他情報の入力"
-      date: "日付"
-      temperature: '気温(℃)'
-      submit: "計算する"
     create:
       title: "エネルギー計算"
       calculation_result: "計算結果"
@@ -43,6 +35,13 @@ ja:
       yokan: "羊羹 （60g/本）"
       dried_fruit: "ドライフルーツ （50g/袋）"
       pocari_sweat: "ポカリ"
+  temperature:
+      edit:
+        title: "エネルギー計算"
+        other_data: "その他情報の入力"
+        date: "日付"
+        temperature: '気温(℃)'
+        submit: "計算する"
   courses:
     create:
       success: "コースを作成しました"
