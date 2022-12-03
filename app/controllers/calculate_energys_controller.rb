@@ -1,16 +1,6 @@
 class CalculateEnergysController < ApplicationController
   skip_before_action :require_login
 
-  def set_user
-    if logged_in?
-      @user = current_user
-    else
-      @user = User.new
-    end
-
-    @course = Course.find(course_params[:course_id])
-  end
-
   def set_other
     @user = User.new
     @user.age = user_params[:age]
@@ -122,6 +112,7 @@ class CalculateEnergysController < ApplicationController
         pocari.save
       end
 
+      flash[:success] = "メモを保存しました"
       redirect_to memos_path
     else
       redirect_to login_path
@@ -129,10 +120,6 @@ class CalculateEnergysController < ApplicationController
   end
 
   private
-
-  def course_params
-    params.require(:course).permit(:course_id)
-  end
 
   def user_params
     params.require(:user).permit(:age, :sex, :height, :weight, :rucksack_weight, :course_id)

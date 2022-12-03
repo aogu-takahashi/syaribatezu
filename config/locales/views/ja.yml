@@ -24,9 +24,6 @@ ja:
   calculate_energys:
     get_courses:
       mountain: "山"
-    set_user:
-      title: "エネルギー計算"
-      user_data: "登山者情報の入力"
     set_other:
       title: "エネルギー計算"
       other_data: "その他情報の入力"
@@ -129,6 +126,9 @@ ja:
     create:
       success: "ユーザーを作成しました"
       fail: "ユーザーの作成に失敗しました"
+    edit:
+      title: "エネルギー計算"
+      user_data: "登山者情報の入力"
   user_sessions:
     new:
       title: "ログイン"
