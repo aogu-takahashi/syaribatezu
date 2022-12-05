@@ -1,7 +1,7 @@
-p edit
-
-= form_with model: @trekking_record, url: trekking_record_path(@trekking_record), method: :patch, local: true do |f|
-  = f.label :description
-  = f.text_area :description
-
-  = f.submit "更新"
+.container.mt-4
+  p = t('.title')
+  = form_with model: @trekking_record, url: trekking_record_path(@trekking_record), method: :patch, local: true do |f|
+    .mb-3
+      = f.label :description, class: 'form-label'
+      = f.text_area :description, class: 'form-control', rows: 6
+    = f.submit "更新", class: 'btn btn-secondary btn-sm'

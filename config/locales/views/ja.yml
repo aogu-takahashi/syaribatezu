@@ -194,6 +194,8 @@ ja:
       description: "記録の詳細"
       add_comment: "コメントの追加・編集"
       back_to_trekking_record_index: "登山記録一覧に戻る"
+    edit:
+      title: "登山記録のコメントの編集"
   static_pages:
     terms:
       title: "利用規約"
