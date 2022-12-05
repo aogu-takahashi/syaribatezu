@@ -9,6 +9,7 @@ ja:
     inquiry: "お問い合わせ"
     edit: "編集"
     delete: "削除"
+    update: "更新"
     select: "選択"
     memo_index: "メモ一覧"
     trekking_records: "登山記録"
