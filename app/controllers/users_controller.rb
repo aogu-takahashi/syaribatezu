@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create edit]
 
   def new
     @user = User.new
@@ -15,9 +15,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    if logged_in?
+      @user = current_user
+    else
+      @user = User.new
+    end
+
+    @course = Course.find(course_params[:course_id])
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :sex, :height, :weight, :rucksack_weight)
+  end
+
+  def course_params
+    params.require(:course).permit(:course_id)
   end
 end

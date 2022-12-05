@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../javascript/get_courses.js"],
-  "sourcesContent": ["$(document).on('change', '#memo_mountain_id', function() {\n  $.get('/memos/get_courses', { mountain_id: $(this).val() })\n    .done(function(data) {\n      $('.course-area').html(data);\n    });\n});\n\n$(document).on('change', '#mountain_id', function() {\n  $.get('/calculate_energys/get_courses', { mountain_id: $(this).val() })\n    .done(function(data) {\n      $('.course-area').html(data);\n    });\n});"],
+  "sourcesContent": ["$(document).on('change', '#memo_mountain_id', function() {\n  $.get('/memos/get_courses', { mountain_id: $(this).val() })\n    .done(function(data) {\n      $('.course-area').html(data);\n    });\n});\n\n$(document).on('change', '#mountain_id', function() {\n  $.get('/courses', { mountain_id: $(this).val() })\n    .done(function(data) {\n      $('.course-area').html(data);\n    });\n});"],
   "mappings": ";;AAAA,IAAE,QAAQ,EAAE,GAAG,UAAU,qBAAqB,WAAW;AACvD,MAAE,IAAI,sBAAsB,EAAE,aAAa,EAAE,IAAI,EAAE,IAAI,EAAE,CAAC,EACvD,KAAK,SAAS,MAAM;AACnB,QAAE,cAAc,EAAE,KAAK,IAAI;AAAA,IAC7B,CAAC;AAAA,EACL,CAAC;AAED,IAAE,QAAQ,EAAE,GAAG,UAAU,gBAAgB,WAAW;AAClD,MAAE,IAAI,kCAAkC,EAAE,aAAa,EAAE,IAAI,EAAE,IAAI,EAAE,CAAC,EACnE,KAAK,SAAS,MAAM;AACnB,QAAE,cAAc,EAAE,KAAK,IAAI;AAAA,IAC7B,CAAC;AAAA,EACL,CAAC;",
   "names": []
 }

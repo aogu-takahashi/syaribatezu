@@ -17,7 +17,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
       it "登録されている都道府県が表示される" do
         prefecture.save
         login_as(user)
-        visit prefectures_calculate_energys_path
+        visit prefectures_path
         expect(page).to have_content prefecture.name
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
       it "選択された都道府県の山が表示される" do
         mountain.save
         login_as(user)
-        visit prefectures_calculate_energys_path
+        visit prefectures_path
         click_link mountain.prefectures.first.name
         expect(page).to have_xpath("//option[text()='#{mountain.name}']")
       end
@@ -34,7 +34,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
       it "選択された山のコースが表示される" do
         mountain.save
         login_as(user)
-        visit prefectures_calculate_energys_path
+        visit prefectures_path
         click_link mountain.prefectures.first.name
         select mountain.name, match: :first
         expect(page).to have_xpath("//option[@value='#{mountain.courses.first.id}']")
@@ -45,7 +45,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
       it "ユーザーデータの登録データが表示される" do
         mountain.save
         login_as(user)
-        visit prefectures_calculate_energys_path
+        visit prefectures_path
         click_link mountain.prefectures.first.name
         select mountain.name, match: :first
         select mountain.courses.first.name, match: :first
@@ -69,7 +69,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
         dry_fruit = Ration.create(id: 3, name: "ドライフルーツ", energy: 100)
         dry_fruit.save
         login_as(user)
-        visit prefectures_calculate_energys_path
+        visit prefectures_path
         click_link mountain.prefectures.first.name
         select mountain.name, match: :first
         select mountain.courses.first.name, match: :first
@@ -94,7 +94,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
         dry_fruit = Ration.create(id: 3, name: "ドライフルーツ", energy: 100)
         dry_fruit.save
         login_as(user)
-        visit prefectures_calculate_energys_path
+        visit prefectures_path
         click_link mountain.prefectures.first.name
         select mountain.name, match: :first
         select mountain.courses.first.name, match: :first

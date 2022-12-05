@@ -1,7 +1,7 @@
 .container.mt-4
   p = t('.title')
   p = t('.user_data')
-  = form_with model: @user, url: set_other_calculate_energys_path, local: true do |f|
+  = form_with model: @user, url: temperature_edit_path, local: true do |f|
     .mb-3
       = f.label :age, class: "form-label"
       = f.number_field :age, class: "form-control"

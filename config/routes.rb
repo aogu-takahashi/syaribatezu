@@ -8,33 +8,36 @@ Rails.application.routes.draw do
   post 'login', to: "user_sessions#create"
   delete 'logout', to: "user_sessions#destroy"
 
+  patch 'temperature/edit', to: "temperature#edit"
+  post 'temperature/edit', to: "temperature#edit"
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create] do
+    collection do
+      post :edit
+    end
+  end
   resources :profiles, only: %i[show edit update]
   resources :trekking_records, only: %i[index show edit update destroy]
   resources :mountains do
-    resources :courses
+    resources :courses, only: %i[new create show edit update destroy]
+    collection do
+      get 'prefecture/:prefecture_id', to: 'mountains#narrowed_index', as: 'narrowed_index'
+    end
   end
   resources :password_resets, only: %i[new create edit update]
 
-  resources :calculate_energys, only: %i[create] do
-    collection do
-      get :prefectures
-      get "prefectures/:prefecture_id/mountains", to: "calculate_energys#mountains", as: "mountains"
-      get 'get_courses'
-      post 'set_user'
-      patch 'set_other', to: "calculate_energys#set_other"
-      post 'set_other', to: "calculate_energys#set_other"
-      post 'save_memo'
-    end
-  end
+  resources :calculate_energys, only: %i[create] 
+  resources :courses, only: %i[index]
+  resources :prefectures, only: %i[index]
+  resources :results, only: %i[create]
+  
   
   resources :memos do
     resources :portable_foods
     resources :portable_drinks
     collection do
-      get "get_mountain"
       get "get_courses"
     end
     member do

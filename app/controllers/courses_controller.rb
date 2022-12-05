@@ -1,11 +1,16 @@
 class CoursesController < ApplicationController
+  skip_before_action :require_login, only: [:index]
+  
+  def index
+    render partial: "select_course", locals: { mountain_id: params[:mountain_id] }
+  end
+
   def new
     @course = Course.new
     @mountain = Mountain.find(params[:mountain_id])
   end
   
   def create
-    # @course = Course.new(course_params)
     @course = current_user.courses.new(course_params)
     if @course.save
       redirect_to mountain_path(params[:mountain_id]), success:  t('.success')
@@ -16,20 +21,17 @@ class CoursesController < ApplicationController
   end
 
   def show
-    # @course = Course.find(params[:id])
-    @course = current_user.courses.find(params[:id])
+    set_course
     @mountain = Mountain.find(params[:mountain_id])
   end
 
   def edit
-    # @course = Course.find(params[:id])
-    @course = current_user.courses.find(params[:id])
+    set_course
     @mountain = Mountain.find(params[:mountain_id])
   end
 
   def update
-    # @course = Course.find(params[:id])
-    @course = current_user.courses.find(params[:id])
+    set_course
     if @course.update(course_params)
       redirect_to mountain_path(params[:mountain_id]), success:  t('.success')
     else
@@ -39,8 +41,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    # @course = Course.find(params[:id])
-    @course = current_user.courses.find(params[:id])
+    set_course
     @course.destroy
     redirect_to mountain_path(params[:mountain_id]), success: t('.success')
   end
@@ -49,5 +50,9 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:name, :days, :walking_time, :distance, :denivele_plus, :denivele_minus).merge(mountain_id: params[:mountain_id])
+  end
+
+  def set_course
+    @course = current_user.courses.find(params[:id])
   end
 end

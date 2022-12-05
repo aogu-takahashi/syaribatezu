@@ -3,6 +3,6 @@
     p = t('.title')
   p = t('.prefecture_select')
   - if @prefectures.present?
-      = render "calculate_energys/prefecture", collection: @prefectures
+      = render "prefectures/prefecture", collection: @prefectures
   - else
     p = t('.no_result')

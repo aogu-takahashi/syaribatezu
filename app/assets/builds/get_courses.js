@@ -6,7 +6,7 @@
     });
   });
   $(document).on("change", "#mountain_id", function() {
-    $.get("/calculate_energys/get_courses", { mountain_id: $(this).val() }).done(function(data) {
+    $.get("/courses", { mountain_id: $(this).val() }).done(function(data) {
       $(".course-area").html(data);
     });
   });

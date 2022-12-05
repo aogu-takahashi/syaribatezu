@@ -15,26 +15,13 @@ ja:
     mountain_data: "山の情報"
     user_data: "登山者情報"
     terms_of_service: "利用規約"
-  calculate_energys:
-    prefectures:
+  prefectures:
+    index:
+      prefectures:
       title: "エネルギー計算"
       prefecture_select: "山の所在地を選択"
       no_result: "該当する都道府県が見つかりませんでした。"
-    mountains:
-      title: "エネルギー計算"
-      course_select: "コースを選択"
-      mountain_select: "山"
-    get_courses:
-      mountain: "山"
-    set_user:
-      title: "エネルギー計算"
-      user_data: "登山者情報の入力"
-    set_other:
-      title: "エネルギー計算"
-      other_data: "その他情報の入力"
-      date: "日付"
-      temperature: '気温(℃)'
-      submit: "計算する"
+  calculate_energys:
     create:
       title: "エネルギー計算"
       calculation_result: "計算結果"
@@ -48,6 +35,13 @@ ja:
       yokan: "羊羹 （60g/本）"
       dried_fruit: "ドライフルーツ （50g/袋）"
       pocari_sweat: "ポカリ"
+  temperature:
+      edit:
+        title: "エネルギー計算"
+        other_data: "その他情報の入力"
+        date: "日付"
+        temperature: '気温(℃)'
+        submit: "計算する"
   courses:
     create:
       success: "コースを作成しました"
@@ -109,6 +103,10 @@ ja:
     index:
       title: "山一覧"
       create: "山の登録"
+    narrowed_index:
+      title: "エネルギー計算"
+      course_select: "コースを選択"
+      mountain_select: "山"
     show:
       title: "山情報"
       delete: "山の削除"
@@ -127,6 +125,9 @@ ja:
     create:
       success: "ユーザーを作成しました"
       fail: "ユーザーの作成に失敗しました"
+    edit:
+      title: "エネルギー計算"
+      user_data: "登山者情報の入力"
   user_sessions:
     new:
       title: "ログイン"
