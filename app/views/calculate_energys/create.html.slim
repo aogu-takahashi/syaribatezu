@@ -35,7 +35,7 @@
     .card-body.text-secondary
       p.card-text #{@total_energy}kcal
 
-  = form_with url: save_memo_calculate_energys_path do |f|
+  = form_with url: results_path do |f|
     = f.hidden_field :temperature, value: @save_data[:temperature]
     = f.hidden_field :course_id, value: @save_data[:course_id]
     = f.hidden_field :date, value: @save_data[:date]
