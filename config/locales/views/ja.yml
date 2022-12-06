@@ -111,6 +111,14 @@ ja:
     index:
       title: "山一覧"
       create: "山の登録"
+      no_result: "山が登録されていません"
+      hokkaido_tohoku: "北海道・東北"
+      kanto: "関東"
+      chubu: "中部"
+      kinki: "近畿"
+      chugoku: "中国"
+      shikoku: "四国"
+      kyushu_okinawa: "九州・沖縄"
     narrowed_index:
       title: "エネルギー計算"
       course_select: "コースを選択"
