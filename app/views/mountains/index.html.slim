@@ -1,9 +1,45 @@
-/ Desc: 山一覧ページ
 .container.mt-4
   p = t('.title')
   = button_to t('.create'), new_mountain_path, class: 'btn btn-secondary btn-sm', method: :get
-  .mt-2
-    - if @mountains.present?
-        = render @mountains
+  .mt-5
+    p = t('.hokkaido_tohoku')
+    - if @hokkaido_tohoku_mountains.present?
+        = render @hokkaido_tohoku_mountains
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.kanto')
+    - if @kanto_mountains.present?
+        = render @kanto_mountains
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.chubu')
+    - if @chubu_mountains.present?
+        = render @chubu_mountains
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.kinki')
+    - if @kinki_mountains.present?
+        = render @kinki_mountains
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.chugoku')
+    - if @chugoku_mountains.present?
+        = render @chugoku_mountains
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.shikoku')
+    - if @shikoku_mountains.present?
+        = render @shikoku_mountains
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.kyushu_okinawa')
+    - if @kyushu_okinawa_mountains.present?
+        = render @kyushu_okinawa_mountains
     - else
       p = t('.no_result')
