@@ -21,6 +21,13 @@ ja:
       prefectures:
       title: "エネルギー計算"
       prefecture_select: "山の所在地を選択"
+      hokkaido_tohoku: "北海道・東北"
+      kanto: "関東"
+      chubu: "中部"
+      kinki: "近畿"
+      chugoku: "中国"
+      shikoku: "四国"
+      kyushu_okinawa: "九州・沖縄"
       no_result: "該当する都道府県が見つかりませんでした。"
   calculate_energys:
     create:

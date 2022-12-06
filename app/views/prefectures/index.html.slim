@@ -2,7 +2,45 @@
   .md-3
     p = t('.title')
   p = t('.prefecture_select')
-  - if @prefectures.present?
-      = render "prefectures/prefecture", collection: @prefectures
-  - else
-    p = t('.no_result')
+  .mt-5
+    p = t('.hokkaido_tohoku')
+    - if @hokkaido_tohoku.present?
+        = render "prefectures/prefecture", prefectures: @hokkaido_tohoku
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.kanto')
+    - if @kanto.present?
+        = render "prefectures/prefecture", prefectures: @kanto
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.chubu')
+    - if @chubu.present?
+        = render "prefectures/prefecture", prefectures: @chubu
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.kinki')
+    - if @kinki.present?
+        = render "prefectures/prefecture", prefectures: @kinki
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.chugoku')
+    - if @chugoku.present?
+        = render "prefectures/prefecture", prefectures: @chugoku
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.shikoku')
+    - if @shikoku.present?
+        = render "prefectures/prefecture", prefectures: @shikoku
+    - else
+      p = t('.no_result')
+  .mt-5
+    p = t('.kyushu_okinawa')
+    - if @kyushu_okinawa.present?
+        = render "prefectures/prefecture", prefectures: @kyushu_okinawa
+    - else
+      p = t('.no_result')
