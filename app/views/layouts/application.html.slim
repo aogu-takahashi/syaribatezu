@@ -16,11 +16,10 @@ html.h-100
     /  Google tag (gtag.js)
     script async src="https://www.googletagmanager.com/gtag/js?id=G-W6RC7KW0C6"
     script
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-W6RC7KW0C6');
+      | window.dataLayer = window.dataLayer || [];
+      | function gtag(){dataLayer.push(arguments);}
+      | gtag('js', new Date());
+      | gtag('config', 'G-W6RC7KW0C6');
     meta name="viewport" content="width=device-width, initial-scale=1"
   body.d-flex.flex-column.h-100
     - if logged_in?
