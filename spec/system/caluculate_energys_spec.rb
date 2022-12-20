@@ -59,7 +59,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
     end
 
     describe "計算結果" do
-      it "計算結果が表示される" do
+      it "計算結果が表示される①" do
         mountain.save
         drink.save
         choco = Ration.create(id: 1, name: "板チョコレート", energy: 280)
