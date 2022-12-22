@@ -59,7 +59,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
     end
 
     describe "計算結果" do
-      it "計算結果が表示される①" do
+      before do
         mountain.save
         drink.save
         choco = Ration.create(id: 1, name: "板チョコレート", energy: 280)
@@ -68,47 +68,42 @@ RSpec.describe "CaluculateEnergys", type: :system do
         yokan.save
         dry_fruit = Ration.create(id: 3, name: "ドライフルーツ", energy: 100)
         dry_fruit.save
-        login_as(user)
-        visit prefectures_path
-        click_link mountain.prefectures.first.name
-        select mountain.name, match: :first
-        select mountain.courses.first.name, match: :first
-        click_on "次へ"
-        click_on "次へ"
-        click_button "計算する"
-        expect(page).to have_content "1038"
-        expect(page).to have_content "1800"
-        expect(page).to have_content "1000"
-        expect(page).to have_content "1枚"
-        expect(page).to have_content "1本"
-        expect(page).to have_content "1袋"
       end
 
-      it "計算結果が表示される②" do
-        mountain.save
-        drink.save
-        choco = Ration.create(id: 1, name: "板チョコレート", energy: 280)
-        choco.save
-        yokan = Ration.create(id: 2, name: "よかん", energy: 170)
-        yokan.save
-        dry_fruit = Ration.create(id: 3, name: "ドライフルーツ", energy: 100)
-        dry_fruit.save
-        user.update(weight: 80)
-        login_as(user)
-        visit prefectures_path
-        click_link mountain.prefectures.first.name
-        select mountain.name, match: :first
-        select mountain.courses.first.name, match: :first
-        click_on "次へ"
-        click_on "次へ"
-        click_button "計算する"
-        expect(page).to have_content "1099"
-        expect(page).to have_content "1920"
-        expect(page).to have_content "1900"
-        expect(page).to have_content "1枚"
-        expect(page).to have_content "1本"
-        expect(page).to have_content "2袋"
-      end
+        fit "計算結果が表示される①" do
+          login_as(user)
+          visit prefectures_path
+          click_link mountain.prefectures.first.name
+          select mountain.name, match: :first
+          select mountain.courses.first.name, match: :first
+          click_on "次へ"
+          click_on "次へ"
+          click_button "計算する"
+          expect(page).to have_content "1038"
+          expect(page).to have_content "1800"
+          expect(page).to have_content "1000"
+          expect(page).to have_content "1枚"
+          expect(page).to have_content "1本"
+          expect(page).to have_content "1袋"
+        end
+
+        fit "計算結果が表示される②" do
+          user.update(weight: 80)
+          login_as(user)
+          visit prefectures_path
+          click_link mountain.prefectures.first.name
+          select mountain.name, match: :first
+          select mountain.courses.first.name, match: :first
+          click_on "次へ"
+          click_on "次へ"
+          click_button "計算する"
+          expect(page).to have_content "1099"
+          expect(page).to have_content "1920"
+          expect(page).to have_content "1900"
+          expect(page).to have_content "1枚"
+          expect(page).to have_content "1本"
+          expect(page).to have_content "2袋"
+        end
 
       it "計算結果が保存される" do
         mountain.save
