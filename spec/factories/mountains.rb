@@ -4,7 +4,7 @@ FactoryBot.define do
 
     after(:create) do |mountain|
       create_list(:course, 3, mountain: mountain)
-      create_list(:mountain_location, 3, mountain: mountain, prefecture: create(:prefecture))
+      create_list(:mountain_location, 1, mountain: mountain, prefecture: create(:prefecture))
     end
   end
 end
