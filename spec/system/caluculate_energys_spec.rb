@@ -70,7 +70,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
         dry_fruit.save
       end
 
-        fit "計算結果が表示される①" do
+        it "計算結果が表示される①" do
           login_as(user)
           visit prefectures_path
           click_link mountain.prefectures.first.name
@@ -87,7 +87,7 @@ RSpec.describe "CaluculateEnergys", type: :system do
           expect(page).to have_content "1袋"
         end
 
-        fit "計算結果が表示される②" do
+        it "計算結果が表示される②" do
           user.update(weight: 80)
           login_as(user)
           visit prefectures_path
